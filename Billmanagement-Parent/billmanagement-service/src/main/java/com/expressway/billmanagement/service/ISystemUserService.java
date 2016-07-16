@@ -20,8 +20,16 @@ public interface ISystemUserService {
     public FeedBackMessage addOrUpdate(SystemUser user);
 
     /**
-     * 待选用户组
+     * 获得用户对象
      * 
+     * @param sysid
+     * @return
+     */
+    public SystemUser findUser(String sysid);
+
+    /**
+     * 待选用户组
+     *
      * @param userID
      * @return
      */

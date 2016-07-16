@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.expressway.billmanagement.data.Condition;
 import com.expressway.billmanagement.data.mappers.SystemMenuMapper;
 import com.expressway.billmanagement.data.models.SystemMenu;
 import com.expressway.billmanagement.data.models.SystemMenuItem;
@@ -46,6 +47,9 @@ final class SystemMenuService implements ISystemMenuService {
     @Override
     @Transactional
     public FeedBackMessage addOrUpdate(SystemMenu menu, String[] itemIds) {
+        // 删除原有的数据
+        del(menu.getSysid());
+
         // 新增菜单对象
         systemMenuMapper.insert(menu);
 
@@ -100,7 +104,6 @@ final class SystemMenuService implements ISystemMenuService {
         }
         return list;
     }
-    
 
     /**
      * @param cf
@@ -108,7 +111,10 @@ final class SystemMenuService implements ISystemMenuService {
      */
     @Override
     public List<SystemMenu> findRecords(ConditionFiled cf) {
-        return systemMenuMapper.selectByExampleAndRowBounds(null,
+        Condition condition = new Condition(SystemMenu.class);
+        condition.setOrderByClause("menuname desc");
+        
+        return systemMenuMapper.selectByExampleAndRowBounds(condition,
                 new RowBounds(cf.getStart(), cf.getLimit() - cf.getStart()));
     }
 

@@ -71,6 +71,7 @@ public class FreeMarkerController {
 	@RequestMapping(value = "main")
 	public String main(@ModelAttribute("model") ModelMap model, HttpServletRequest request) {
 		SystemUser user = (SystemUser) request.getSession().getAttribute("freeWayUser");
+		
 		// 如果用户登录信息不存在，则强制用户重新登陆
 		if (user == null) {
 			return "index";

@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.expressway.billmanagement.data.Condition;
+import com.expressway.billmanagement.data.helpers.StringHelper;
+import com.expressway.billmanagement.data.helpers.UUIDGenerator;
 import com.expressway.billmanagement.data.mappers.SystemUserMapper;
 import com.expressway.billmanagement.data.models.SystemGroup;
 import com.expressway.billmanagement.data.models.SystemUser;
 import com.expressway.billmanagement.service.ISystemGroupService;
 import com.expressway.billmanagement.service.ISystemUserService;
 import com.expressway.billmanagement.service.helper.MD5Converter;
-import com.expressway.billmanagement.service.helper.StringHelper;
-import com.expressway.billmanagement.service.helper.UUIDGenerator;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
 import com.expressway.billmanagement.service.protocal.ConditionFiled;
 
@@ -51,6 +51,30 @@ final class SystemUserService implements ISystemUserService {
     }
 
     /**
+     * 待选用户组
+     *
+     * @param userID
+     * @return
+     */
+    @Override
+    public List<SystemGroup> getUserGroups(String userId) {
+        SystemUser user = findUser(userId);
+
+        // 获得全部的用户组信息
+        List<SystemGroup> list = systemGroupService.getAll();
+
+        // 判断用户组是否被选中
+        if (user != null) {
+            for (SystemGroup group : list) {
+                if (group.getSysid().equals(user.getGroupid())) {
+                    group.setRemark("true");
+                }
+            }
+        }
+        return list;
+    }
+
+    /**
      * 删除用户信息
      *
      * @param sysid
@@ -64,31 +88,6 @@ final class SystemUserService implements ISystemUserService {
     }
 
     /**
-     * 待选用户组
-     *
-     * @param userID
-     * @return
-     */
-    @Override
-    public List<SystemGroup> getUserGroups(String userId) {
-        // 用户信息
-        SystemUser user = systemUserMapper.selectByPrimaryKey(userId);
-
-        // 获得全部的用户组信息
-        List<SystemGroup> list = systemGroupService.getAll();
-
-        // 判断用户组是否被选中
-        if (user != null) {
-            for (SystemGroup group : systemGroupService.getAll()) {
-                if (group.getSysid().equals(user.getGroupid())) {
-                    group.setRemark("true");
-                }
-            }
-        }
-        return list;
-    }
-
-    /**
      * 查询用户登录信息
      * 
      * @param fields
@@ -99,7 +98,7 @@ final class SystemUserService implements ISystemUserService {
         Condition condition = new Condition(SystemUser.class);
         condition.setOrderByClause("createtime");
         Criteria criteria = condition.createCriteria();
-        
+
         // 按组搜索用户
         if (!StringHelper.isNullOrEmpty(cf.getSysid())) {
             criteria.andEqualTo("groupid", cf.getSysid());
@@ -117,5 +116,14 @@ final class SystemUserService implements ISystemUserService {
         criteria.andEqualTo("password", MD5Converter.string2MD5(cf.getPassword()));
 
         return systemUserMapper.selectByExample(condition);
+    }
+
+    /**
+     * @param sysid
+     * @return
+     */
+    @Override
+    public SystemUser findUser(String sysid) {
+        return systemUserMapper.selectByPrimaryKey(sysid);
     }
 }

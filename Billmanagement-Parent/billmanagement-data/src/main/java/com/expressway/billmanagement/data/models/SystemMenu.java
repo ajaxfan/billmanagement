@@ -1,7 +1,9 @@
 package com.expressway.billmanagement.data.models;
 
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import com.expressway.billmanagement.data.helpers.StringHelper;
+import com.expressway.billmanagement.data.helpers.UUIDGenerator;
 
 /**
  * 菜单
@@ -9,42 +11,44 @@ import javax.persistence.Id;
  * @author FXStudio.Ajaxfan
  */
 public class SystemMenu {
-	@GeneratedValue(generator = "UUID")
-	@Id
-	private String sysid;
-	private String menuname;
-	private String remark;
-	private char islock = '0';
+    @Id
+    private String sysid;
+    private String menuname;
+    private String remark;
+    private char islock = '0';
 
-	public String getSysid() {
-		return sysid;
-	}
+    public String getSysid() {
+        if (StringHelper.isNullOrEmpty(sysid)) {
+            return UUIDGenerator.random();
+        }
+        return sysid;
+    }
 
-	public void setSysid(String sysid) {
-		this.sysid = sysid;
-	}
+    public void setSysid(String sysid) {
+        this.sysid = sysid;
+    }
 
-	public String getMenuname() {
-		return menuname;
-	}
+    public String getMenuname() {
+        return menuname;
+    }
 
-	public void setMenuname(String menuname) {
-		this.menuname = menuname;
-	}
+    public void setMenuname(String menuname) {
+        this.menuname = menuname;
+    }
 
-	public String getRemark() {
-		return remark;
-	}
+    public String getRemark() {
+        return remark;
+    }
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 
-	public char getIslock() {
-		return islock;
-	}
+    public char getIslock() {
+        return islock;
+    }
 
-	public void setIslock(char islock) {
-		this.islock = islock;
-	}
+    public void setIslock(char islock) {
+        this.islock = islock;
+    }
 }

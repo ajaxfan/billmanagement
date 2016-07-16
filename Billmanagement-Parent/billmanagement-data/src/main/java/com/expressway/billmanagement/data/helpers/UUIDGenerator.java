@@ -1,4 +1,4 @@
-package com.expressway.billmanagement.service.helper;
+package com.expressway.billmanagement.data.helpers;
 
 import java.util.UUID;
 

@@ -1,6 +1,6 @@
 package com.expressway.billmanagement.service.protocal;
 
-import com.expressway.billmanagement.service.helper.StringHelper;
+import com.expressway.billmanagement.data.helpers.StringHelper;
 
 /**
  * 数据过滤条件字段
