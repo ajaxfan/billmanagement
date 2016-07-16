@@ -73,6 +73,18 @@ final class SystemMenuToMenuItemService implements ISystemMenuToMenuItemService 
     public List<SystemMenuMenuitem> getList(String sysid) {
         Condition condition = new Condition(SystemMenuMenuitem.class);
         condition.createCriteria().andEqualTo("menuid", sysid);
+
+        return systemMenuMenuitemMapper.selectByExample(condition);
+    }
+
+    /**
+     * @param menuid
+     * @return
+     */
+    @Override
+    public List<SystemMenuMenuitem> getMenu2MenuItems(String menuid) {
+        Condition condition = new Condition(SystemMenuMenuitem.class);
+        condition.createCriteria().andEqualTo("menuid", menuid);
         
         return systemMenuMenuitemMapper.selectByExample(condition);
     }

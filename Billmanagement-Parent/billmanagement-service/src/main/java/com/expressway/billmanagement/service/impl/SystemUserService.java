@@ -2,18 +2,24 @@ package com.expressway.billmanagement.service.impl;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.expressway.billmanagement.data.Condition;
 import com.expressway.billmanagement.data.mappers.SystemUserMapper;
 import com.expressway.billmanagement.data.models.SystemGroup;
 import com.expressway.billmanagement.data.models.SystemUser;
 import com.expressway.billmanagement.service.ISystemGroupService;
 import com.expressway.billmanagement.service.ISystemUserService;
 import com.expressway.billmanagement.service.helper.MD5Converter;
+import com.expressway.billmanagement.service.helper.StringHelper;
 import com.expressway.billmanagement.service.helper.UUIDGenerator;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
+import com.expressway.billmanagement.service.protocal.ConditionFiled;
+
+import tk.mybatis.mapper.entity.Example.Criteria;
 
 /**
  * 系统用户
@@ -35,12 +41,12 @@ final class SystemUserService implements ISystemUserService {
     public FeedBackMessage addOrUpdate(SystemUser user) {
         // 删除现有的用户信息
         del(user.getSysid());
-        
+
         // 新增用户信息
         user.setSysid(UUIDGenerator.random());
         user.setPassword(MD5Converter.string2MD5(user.getPassword()));
         systemUserMapper.insert(user);
-        
+
         return new FeedBackMessage(true);
     }
 
@@ -80,5 +86,36 @@ final class SystemUserService implements ISystemUserService {
             }
         }
         return list;
+    }
+
+    /**
+     * 查询用户登录信息
+     * 
+     * @param fields
+     * @return
+     */
+    @Override
+    public List<SystemUser> findRecords(ConditionFiled cf) {
+        Condition condition = new Condition(SystemUser.class);
+        condition.setOrderByClause("createtime");
+        Criteria criteria = condition.createCriteria();
+        
+        // 按组搜索用户
+        if (!StringHelper.isNullOrEmpty(cf.getSysid())) {
+            criteria.andEqualTo("groupid", cf.getSysid());
+            return systemUserMapper.selectByExampleAndRowBounds(condition,
+                    new RowBounds(cf.getStart(), cf.getLimit() - cf.getStart()));
+        }
+        // 查找全部的用户
+        else if (StringHelper.isNullOrEmpty(cf.getUsername()) && StringHelper.isNullOrEmpty((cf.getPassword()))) {
+            criteria.andNotEqualTo("visible", "1");// 超级管理员账户不可见
+            return systemUserMapper.selectByExampleAndRowBounds(condition,
+                    new RowBounds(cf.getStart(), cf.getLimit() - cf.getStart()));
+        }
+        // 查找特定的用户信息
+        criteria.andEqualTo("username", cf.getUsername());
+        criteria.andEqualTo("password", MD5Converter.string2MD5(cf.getPassword()));
+
+        return systemUserMapper.selectByExample(condition);
     }
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import com.expressway.billmanagement.data.models.SystemGroup;
 import com.expressway.billmanagement.data.models.SystemUser;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
+import com.expressway.billmanagement.service.protocal.ConditionFiled;
 
 /**
  * 系统用户
@@ -12,21 +13,20 @@ import com.expressway.billmanagement.service.messages.FeedBackMessage;
  * @author FXStudio.Ajaxfan
  */
 public interface ISystemUserService {
-	/**
-	 * @param user
-	 * @return
-	 */
-	public FeedBackMessage addOrUpdate(SystemUser user);
+    /**
+     * @param user
+     * @return
+     */
+    public FeedBackMessage addOrUpdate(SystemUser user);
 
-	/**
-	 * 待选用户组
-	 * 
-	 * @param userID
-	 * @return
-	 */
-	public List<SystemGroup> getUserGroups(String userId);
-	
-	
+    /**
+     * 待选用户组
+     * 
+     * @param userID
+     * @return
+     */
+    public List<SystemGroup> getUserGroups(String userId);
+
     /**
      * 删除用户信息
      * 
@@ -34,4 +34,12 @@ public interface ISystemUserService {
      * @return
      */
     public FeedBackMessage del(String sysid);
+
+    /**
+     * 查询用户信息
+     * 
+     * @param cf
+     * @return
+     */
+    public List<SystemUser> findRecords(ConditionFiled cf);
 }

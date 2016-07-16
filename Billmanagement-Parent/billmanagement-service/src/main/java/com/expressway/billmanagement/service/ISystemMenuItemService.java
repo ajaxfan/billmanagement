@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.expressway.billmanagement.data.models.SystemMenuItem;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
+import com.expressway.billmanagement.service.protocal.ConditionFiled;
 
 /**
  * 系统菜单项管理
@@ -28,11 +29,27 @@ public interface ISystemMenuItemService {
      * @return
      */
     public FeedBackMessage del(String sysid);
-    
+
     /**
      * 查询所有的菜单项
      * 
      * @return
      */
     public List<SystemMenuItem> getAll();
+    
+    /**
+     * 获取菜单项信息
+     * 
+     * @param itemid
+     * @return
+     */
+    public SystemMenuItem findMenuItem(String itemid);
+
+    /**
+     * 查询菜单项记录
+     * 
+     * @param cf
+     * @return
+     */
+    public List<SystemMenuItem> findRecords(ConditionFiled cf);
 }

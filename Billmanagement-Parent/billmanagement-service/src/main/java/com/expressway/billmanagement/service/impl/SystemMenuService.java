@@ -3,6 +3,7 @@ package com.expressway.billmanagement.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +16,7 @@ import com.expressway.billmanagement.service.ISystemMenuItemService;
 import com.expressway.billmanagement.service.ISystemMenuService;
 import com.expressway.billmanagement.service.ISystemMenuToMenuItemService;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
+import com.expressway.billmanagement.service.protocal.ConditionFiled;
 import com.expressway.billmanagement.service.tree.CheckedNode;
 import com.expressway.billmanagement.service.tree.inters.INode;
 
@@ -98,6 +100,17 @@ final class SystemMenuService implements ISystemMenuService {
         }
         return list;
     }
+    
+
+    /**
+     * @param cf
+     * @return
+     */
+    @Override
+    public List<SystemMenu> findRecords(ConditionFiled cf) {
+        return systemMenuMapper.selectByExampleAndRowBounds(null,
+                new RowBounds(cf.getStart(), cf.getLimit() - cf.getStart()));
+    }
 
     /**
      * 节点是否被选中
@@ -113,5 +126,13 @@ final class SystemMenuService implements ISystemMenuService {
             }
         }
         return false;
+    }
+
+    /**
+     * @return
+     */
+    @Override
+    public List<SystemMenu> getAll() {
+        return systemMenuMapper.selectAll();
     }
 }

@@ -27,6 +27,15 @@ public interface ISystemMenuToMenuItemService {
      * @return
      */
     public List<SystemMenuMenuitem> getList(String sysid);
+    
+    
+    /**
+     * 获取菜单项信息
+     * 
+     * @param menuid
+     * @return
+     */
+    public List<SystemMenuMenuitem> getMenu2MenuItems(String menuid);
 
     /**
      * 删除指定用户组的对照关系

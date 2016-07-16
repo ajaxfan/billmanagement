@@ -1,6 +1,9 @@
 package com.expressway.billmanagement.service;
 
+import java.util.List;
+
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
+import com.expressway.billmanagement.service.tree.inters.INode;
 
 /**
  * 维护部门菜单对照关系
@@ -24,4 +27,12 @@ public interface ISystemGroupToMenuService {
      * @return
      */
     public FeedBackMessage del(String sysid);
+    
+    /**
+     * 获取用户组下的所有菜单
+     * 
+     * @param groupId
+     * @return
+     */
+    public List<INode> getSystemMenu(String groupId);
 }

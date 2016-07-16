@@ -2,6 +2,7 @@ package com.expressway.billmanagement.service.impl;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,6 +11,7 @@ import com.expressway.billmanagement.data.mappers.SystemMenuItemMapper;
 import com.expressway.billmanagement.data.models.SystemMenuItem;
 import com.expressway.billmanagement.service.ISystemMenuItemService;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
+import com.expressway.billmanagement.service.protocal.ConditionFiled;
 
 /**
  * 系统菜单项
@@ -63,5 +65,26 @@ final class SystemMenuItemService implements ISystemMenuItemService {
     @Override
     public List<SystemMenuItem> getAll() {
         return systemMenuItemMapper.selectAll();
+    }
+
+    /**
+     * 所有的菜单项记录
+     * 
+     * @param cf
+     * @return
+     */
+    @Override
+    public List<SystemMenuItem> findRecords(ConditionFiled cf) {
+        return systemMenuItemMapper.selectByExampleAndRowBounds(null,
+                new RowBounds(cf.getStart(), cf.getLimit() - cf.getStart()));
+    }
+
+    /**
+     * @param itemid
+     * @return
+     */
+    @Override
+    public SystemMenuItem findMenuItem(String itemid) {
+        return systemMenuItemMapper.selectByPrimaryKey(itemid);
     }
 }

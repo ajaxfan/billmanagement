@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.expressway.billmanagement.data.models.SystemGroup;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
+import com.expressway.billmanagement.service.protocal.ConditionFiled;
 
 /**
  * 系统用户组
@@ -33,4 +34,12 @@ public interface ISystemGroupService {
      * @return
      */
     public List<SystemGroup> getAll();
+    
+    /**
+     * 查找用户组信息
+     * 
+     * @param cf
+     * @return
+     */
+    public List<SystemGroup> findRecords(ConditionFiled cf);
 }

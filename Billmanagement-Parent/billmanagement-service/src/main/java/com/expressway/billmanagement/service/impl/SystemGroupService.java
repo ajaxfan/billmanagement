@@ -2,15 +2,17 @@ package com.expressway.billmanagement.service.impl;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.expressway.billmanagement.data.mappers.SystemGroupMapper;
 import com.expressway.billmanagement.data.models.SystemGroup;
-import com.expressway.billmanagement.service.ISystemGroupToMenuService;
 import com.expressway.billmanagement.service.ISystemGroupService;
+import com.expressway.billmanagement.service.ISystemGroupToMenuService;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
+import com.expressway.billmanagement.service.protocal.ConditionFiled;
 
 /**
  * 用户组相关的服务
@@ -72,5 +74,15 @@ final class SystemGroupService implements ISystemGroupService {
     @Override
     public List<SystemGroup> getAll() {
         return systemGroupMapper.selectAll();
+    }
+
+    /**
+     * @param cf
+     * @return
+     */
+    @Override
+    public List<SystemGroup> findRecords(ConditionFiled cf) {
+        return systemGroupMapper.selectByExampleAndRowBounds(null,
+                new RowBounds(cf.getStart(), cf.getLimit() - cf.getStart()));
     }
 }
