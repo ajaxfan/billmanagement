@@ -18,7 +18,7 @@ public class SystemGroup {
 
     public String getSysid() {
         if (StringHelper.isNullOrEmpty(sysid)) {
-            return UUIDGenerator.random();
+            return sysid = UUIDGenerator.random();
         }
         return sysid;
     }

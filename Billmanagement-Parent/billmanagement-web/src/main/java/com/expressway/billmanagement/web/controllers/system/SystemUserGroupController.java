@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.expressway.billmanagement.data.models.SystemGroup;
 import com.expressway.billmanagement.data.models.SystemUser;
 import com.expressway.billmanagement.service.ISystemGroupService;
+import com.expressway.billmanagement.service.ISystemGroupToMenuService;
 import com.expressway.billmanagement.service.ISystemUserService;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
 import com.expressway.billmanagement.service.protocal.ConditionFiled;
@@ -29,6 +30,7 @@ import com.github.pagehelper.PageInfo;
 public class SystemUserGroupController {
 	private @Autowired ISystemGroupService systemGroupService;
 	private @Autowired ISystemUserService systemUserService;
+	private @Autowired ISystemGroupToMenuService systemGroupToMenuService;
 
 	/**
 	 * 菜单列表
@@ -114,6 +116,6 @@ public class SystemUserGroupController {
 	 */
 	@RequestMapping(value = "userGroupMenu")
 	public Object menuItemList(@RequestParam(value = "groupId", required = false, defaultValue = "") String groupId) {
-		return systemUserService.getUserGroups(groupId);
+		return systemGroupToMenuService.getSystemMenu(groupId);
 	}
 }
