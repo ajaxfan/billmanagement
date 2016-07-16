@@ -10,7 +10,7 @@ import javax.print.attribute.standard.MediaSizeName;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.expressway.billmanagement.data.beans.BillThree;
+import com.expressway.billmanagement.data.models.BillThree;
 import com.expressway.billmanagement.report.api.IReportService;
 
 import net.sf.jasperreports.engine.JRException;

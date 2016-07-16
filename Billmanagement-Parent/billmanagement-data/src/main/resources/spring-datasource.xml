@@ -51,7 +51,7 @@
 
     <!-- Mapper类加载 -->
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="org.billmanagement.data.mapper" />
+        <property name="basePackage" value="com.expressway.billmanagement.data.mappers" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
 </beans>

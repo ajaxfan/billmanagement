@@ -11,7 +11,7 @@ import javax.print.attribute.standard.MediaSizeName;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.expressway.billmanagement.data.beans.MTCReport;
+import com.expressway.billmanagement.data.models.MTCReport;
 import com.expressway.billmanagement.report.api.IReportService;
 
 import net.sf.jasperreports.engine.JRException;

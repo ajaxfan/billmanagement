@@ -12,7 +12,7 @@
 
 	<!-- 实体类别名 -->
 	<typeAliases>
-		<package name="org.billmanagement.data.model" />
+		<package name="com.expressway.billmanagement.data.models" />
 	</typeAliases>
 
 	<!-- MyBatis的分页插件 -->
