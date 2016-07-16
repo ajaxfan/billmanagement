@@ -1,5 +1,7 @@
 package com.expressway.billmanagement.service;
 
+import java.util.List;
+
 import com.expressway.billmanagement.data.models.SystemGroup;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
 
@@ -15,15 +17,7 @@ public interface ISystemGroupService {
      * @param menuItem
      * @return
      */
-    public FeedBackMessage add(SystemGroup group, String[] menuIds);
-
-    /**
-     * 修改用户组
-     * 
-     * @param menuItem
-     * @return
-     */
-    public FeedBackMessage update(SystemGroup group, String[] menuIds);
+    public FeedBackMessage addOrUpdate(SystemGroup group, String[] menuIds);
 
     /**
      * 删除用户组
@@ -32,4 +26,11 @@ public interface ISystemGroupService {
      * @return
      */
     public FeedBackMessage del(String sysid);
+    
+    /**
+     * 查询全部的用户组信息
+     * 
+     * @return
+     */
+    public List<SystemGroup> getAll();
 }

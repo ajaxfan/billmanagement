@@ -7,7 +7,7 @@ import com.expressway.billmanagement.service.messages.FeedBackMessage;
  * 
  * @author FXStudio.Ajaxfan
  */
-public interface ISystemGroupMenuService {
+public interface ISystemGroupToMenuService {
     /**
      * 变更部门菜单关系
      * 
@@ -15,7 +15,7 @@ public interface ISystemGroupMenuService {
      * @param menuIds
      * @return
      */
-    public FeedBackMessage update(String sysid, String[] menuIds);
+    public FeedBackMessage addOrUpdate(String sysid, String[] menuIds);
 
     /**
      * 删除指定用户组的对照关系

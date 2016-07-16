@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.expressway.billmanagement.data.models.SystemMenu;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
-import com.expressway.billmanagement.service.protocal.ConditionFiled;
 import com.expressway.billmanagement.service.tree.inters.INode;
 
 /**
@@ -19,15 +18,7 @@ public interface ISystemMenuService {
 	 * @param menu
 	 * @return
 	 */
-	public FeedBackMessage add(SystemMenu menu, String[] itemIds);
-
-	/**
-	 * 更新菜单
-	 * 
-	 * @param menuComplex
-	 * @return
-	 */
-	public FeedBackMessage update(SystemMenu menu, String[] itemIds);
+	public FeedBackMessage addOrUpdate(SystemMenu menu, String[] itemIds);
 
 	/**
 	 * 展开菜单
@@ -40,15 +31,4 @@ public interface ISystemMenuService {
 
     public FeedBackMessage del(String sysid);
 
-    /**
-     * @param cf
-     * @return
-     */
-    public List<SystemMenu> findRecords(ConditionFiled cf);
-    
-    /**
-     * @param cf
-     * @return
-     */
-    public Integer getSize(ConditionFiled cf);
 }

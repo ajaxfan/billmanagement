@@ -5,7 +5,6 @@ import java.util.List;
 import com.expressway.billmanagement.data.models.SystemGroup;
 import com.expressway.billmanagement.data.models.SystemUser;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
-import com.expressway.billmanagement.service.protocal.ConditionFiled;
 
 /**
  * 系统用户
@@ -27,20 +26,12 @@ public interface ISystemUserService {
 	 */
 	public List<SystemGroup> getUserGroups(String userId);
 	
-
-    
-
+	
+    /**
+     * 删除用户信息
+     * 
+     * @param sysid
+     * @return
+     */
     public FeedBackMessage del(String sysid);
-
-    /**
-     * @param cf
-     * @return
-     */
-    public List<SystemUser> findRecords(ConditionFiled cf);
-    
-    /**
-     * @param cf
-     * @return
-     */
-    public Integer getSize(ConditionFiled cf);
 }

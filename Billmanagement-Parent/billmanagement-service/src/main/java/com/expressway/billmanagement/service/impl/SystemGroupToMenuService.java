@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.expressway.billmanagement.data.Condition;
 import com.expressway.billmanagement.data.mappers.SystemGroupMenuMapper;
 import com.expressway.billmanagement.data.models.SystemGroupMenu;
-import com.expressway.billmanagement.service.ISystemGroupMenuService;
+import com.expressway.billmanagement.service.ISystemGroupToMenuService;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
 
 /**
@@ -16,7 +16,7 @@ import com.expressway.billmanagement.service.messages.FeedBackMessage;
  * @author FXStudio.Ajaxfan
  */
 @Service
-final class SystemGroupMenuService implements ISystemGroupMenuService {
+final class SystemGroupToMenuService implements ISystemGroupToMenuService {
     /** 部门菜单Dao */
     private @Autowired SystemGroupMenuMapper deptMenuMapper;
 
@@ -29,7 +29,7 @@ final class SystemGroupMenuService implements ISystemGroupMenuService {
      */
     @Override
     @Transactional
-    public FeedBackMessage update(String sysid, String[] menuIds) {
+    public FeedBackMessage addOrUpdate(String sysid, String[] menuIds) {
         // 删除以前维护的关系记录
         del(sysid);
         
