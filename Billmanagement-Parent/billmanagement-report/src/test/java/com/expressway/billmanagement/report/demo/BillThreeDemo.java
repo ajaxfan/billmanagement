@@ -1,6 +1,5 @@
 package com.expressway.billmanagement.report.demo;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,27 +16,11 @@ import com.expressway.billmanagement.report.api.IReportService;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporter;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporterParameter;
-import net.sf.jasperreports.engine.util.JRLoader;
 
 public class BillThreeDemo {
-	/** 模板存放的相对路径 */
-	private static final String JASPER_JXML_PATH = "resources/BillThree.jasper";
-
 	public static void main(String[] args) {
-		// try {
-		// Map param = new HashMap();
-		//
-		// JasperReport jasper = loadResource();
-		//
-		// print(JasperFillManager.fillReport(jasper, param, new
-		// JRBeanCollectionDataSource(createList())));
-		// } catch (Exception e) {
-		// e.printStackTrace();
-		// }
-
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring-report.xml");
 		IReportService dao = (IReportService) context.getBean("reportService");
 		try {
@@ -75,31 +58,6 @@ public class BillThreeDemo {
 			list.add(bean);
 		}
 		return list;
-	}
-
-	private static JasperReport loadResource() {
-		InputStream in = null;
-		JasperReport jr = null;
-
-		try {
-			// 加载模板文件
-			in = BillThreeDemo.class.getResourceAsStream(JASPER_JXML_PATH);
-			// 通过模板来创建Jasper对象
-			jr = (JasperReport) JRLoader.loadObject(in);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (in != null) {
-				try {
-					in.close();
-				} catch (Exception e) {
-					e.printStackTrace();
-				} finally {
-					in = null;
-				}
-			}
-		}
-		return jr;
 	}
 
 	/**
