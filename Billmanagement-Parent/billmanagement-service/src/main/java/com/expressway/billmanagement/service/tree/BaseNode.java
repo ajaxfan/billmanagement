@@ -41,7 +41,7 @@ abstract class BaseNode implements INode {
 		Collections.sort(children, new Comparator<INode>() {
 			@Override
 			public int compare(INode o1, INode o2) {
-				return ((NormalNode)o1).getText().compareTo(((NormalNode)o2).getText());
+				return o1.getText().compareTo(o2.getText());
 			}
 		});
 		return Collections.unmodifiableList(children);

@@ -21,4 +21,11 @@ public interface INode {
 	 * @return
 	 */
 	public List<INode> getChildren();
+
+	/**
+	 * 节点文本
+	 * 
+	 * @return
+	 */
+	public String getText();
 }

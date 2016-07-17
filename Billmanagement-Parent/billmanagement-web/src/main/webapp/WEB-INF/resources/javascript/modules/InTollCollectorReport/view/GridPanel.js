@@ -2,11 +2,12 @@ Ext.define('InTollCollectorReportModule.view.GridPanel', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.gridpanel',
 	
-    defaults:{ sortable: true},
+    defaults:{ sortable: false},
     columns: [{ 
     	xtype: 'rownumberer',
         header: '序号',
-    	width: 60
+        align:'center',
+    	width: 50
 	}, {
         header: '票号',
         width: 160,

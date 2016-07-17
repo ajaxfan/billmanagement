@@ -1,6 +1,7 @@
 Ext.define('MTCYearReportModule.view.GridPanel', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.gridpanel',
+	requires: ["Ext.ux.MonthField"],
 	
     defaults:{ sortable: true },
     columns: [{ 
@@ -90,10 +91,10 @@ Ext.define('MTCYearReportModule.view.GridPanel', {
                 items: [{
             		fieldLabel: '统计日期',
             		labelAlign: 'right',
-            		width: 210,
+            		width: 160,
             		labelWidth: 80,
     	           	id: 'beginDate',
-    	   	        xtype: 'datefield',
+    	   	        xtype: 'monthfield',
     	   	        format: 'Y',
     	   	        editable: false,
     	   	        value: new Date()

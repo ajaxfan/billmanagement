@@ -6,6 +6,7 @@ Ext.define('OutTollCollectorReportModule.view.GridPanel', {
     columns: [{ 
     	xtype: 'rownumberer',
         header: '序号',
+        align:'center',
     	width: 60
 	}, {
         header: '票号',
