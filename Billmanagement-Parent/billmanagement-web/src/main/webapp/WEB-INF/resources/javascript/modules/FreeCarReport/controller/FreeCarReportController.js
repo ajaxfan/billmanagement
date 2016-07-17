@@ -16,10 +16,10 @@ Ext.define('FreeCarReportModule.controller.FreeCarReportController', {
 	    // 设置焦点
         store.on("load", function(){
         	gridPanel.getSelectionModel().select(0);
-        	var comp = Ext.getCmp('queryField');
-        	if(comp) {
-        		Ext.getCmp('queryField').focus(true, 100);
-    		}
+        });
+        store.load({
+        	beginDate: Ext.util.Format.date(new Date(), 'Y/m/d'),
+        	endDate: Ext.util.Format.date(new Date(), 'Y/m/d')
         });
 	}
 });

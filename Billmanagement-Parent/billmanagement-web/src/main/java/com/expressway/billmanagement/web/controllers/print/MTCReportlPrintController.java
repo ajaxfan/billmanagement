@@ -23,7 +23,7 @@ import com.expressway.billmanagement.service.IMTCReportService;
 @Controller
 @RequestMapping(value = "services", method = { RequestMethod.GET })
 public class MTCReportlPrintController extends BasePrintController {
-    /** ETC数据服务 */
+    /** mtc数据服务 */
     private @Autowired IMTCReportService mtcReportService;
     /** 报表生成服务 */
     private @Autowired IReportService reportService;
@@ -35,8 +35,8 @@ public class MTCReportlPrintController extends BasePrintController {
      *            结束索引
      * @return
      */
-    @RequestMapping(value = "etcDailyReport")
-    public void etcDailyReport(HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping(value = "mtcDailyReport")
+    public void mtcDailyReport(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("ReportType", "MTC日报");
 
@@ -51,8 +51,8 @@ public class MTCReportlPrintController extends BasePrintController {
      *            结束索引
      * @return
      */
-    @RequestMapping(value = "etcMonthReport")
-    public void etcMonthReport(HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping(value = "mtcMonthReport")
+    public void mtcMonthReport(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("ReportType", "MTC月报");
 
@@ -67,8 +67,8 @@ public class MTCReportlPrintController extends BasePrintController {
      *            结束索引
      * @return
      */
-    @RequestMapping(value = "etcYearReport")
-    public void etcYearReport(HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping(value = "mtcYearReport")
+    public void mtcYearReport(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("ReportType", "MTC年报");
 

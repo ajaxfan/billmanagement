@@ -118,7 +118,7 @@ Ext.define('FreeCarReportModule.view.GridPanel', {
 		   			   click: function() {
 		   				    var applet = document.getElementById("reportApplet");
 		   				    
-		   				    applet.ppr("tollCollectorReportService", {date: store.getProxy().extraParams["beginDate"]});
+		   				    applet.ppr("freeCarReport", {date: store.getProxy().extraParams["beginDate"]});
 		   			   }
 		   		    }
                 }]

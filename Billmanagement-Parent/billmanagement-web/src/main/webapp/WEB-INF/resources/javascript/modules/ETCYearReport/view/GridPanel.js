@@ -94,7 +94,7 @@ Ext.define('ETCYearReportModule.view.GridPanel', {
 		   			   click: function() {
 		   				    var applet = document.getElementById("reportApplet");
 		   				    
-		   				    applet.ppr("tollCollectorReportService", {date: store.getProxy().extraParams["beginDate"]});
+		   				    applet.ppr("etcYearReport", {date: store.getProxy().extraParams["beginDate"]});
 		   			   }
 		   		    }
                 }]

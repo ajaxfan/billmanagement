@@ -120,7 +120,7 @@ Ext.define('MTCMonthReportModule.view.GridPanel', {
 		   			   click: function() {
 		   				    var applet = document.getElementById("reportApplet");
 		   				    
-		   				    applet.ppr("tollCollectorReportService", {date: store.getProxy().extraParams["beginDate"]});
+		   				    applet.ppr("mtcMonthReport", {date: store.getProxy().extraParams["beginDate"]});
 		   			   }
 		   		    }
                 }]
