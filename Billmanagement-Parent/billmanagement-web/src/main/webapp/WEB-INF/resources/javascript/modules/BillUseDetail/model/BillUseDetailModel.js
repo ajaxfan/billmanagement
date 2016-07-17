@@ -2,9 +2,7 @@ Ext.define('BillUseDetailModule.model.BillUseDetailModel', {
 	extend: 'Ext.data.Model',
 	
 	fields: [
-         'recordNo', 'enteName', 'exitName', 'vEnte', 
-         'vExit', 'exitDate', 'enteDate', 'totalFare', 
-         'carExitcodeRecognize', 'tollType', 'solidFree',
-         'receivable', 'exemption'
+         'employeeNo', 'employeeName', 'enteName', 'orderNo', 
+         'orderDate', 'totalFare'
     ]
 });

@@ -7,11 +7,11 @@ Ext.define('FreeCarReportModule.store.FreeCarReport', {
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
-        url : 'services/freeTimeList',//请求
+        url : 'services/freeCarList',//请求
         reader: {
             type: 'json',
             root: 'items',
-            idProperty: 'recordNo',
+            idProperty: 'carOutCount',
             totalProperty: 'totalCount'
         }
     }

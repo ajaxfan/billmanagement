@@ -3,9 +3,7 @@ Ext.define('FreeCarReportModule.view.GridPanel', {
 	alias: 'widget.gridpanel',
 	
 	requires: [
-       "Ext.plugins.QueryCriteriaToolbar", 
-       "Ext.plugins.PicColumn", 
-       "Ext.plugins.Paging"
+       "Ext.plugins.QueryCriteriaToolbar"
 	],
     defaults:{ sortable: true },
     columns: [{ 
@@ -14,59 +12,69 @@ Ext.define('FreeCarReportModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
-    	xtype: 'piccolumn' 
-    }, {
-        header: '入口站',
+        header: '小型车出口流量',
         width: 160,
-        dataIndex: 'enteName'
+        dataIndex: 'carOutCount'
     }, {
-        header: '入口时间',
+        header: '小型车出口免征金额',
         width: 140,
-        dataIndex: 'enteDate'
+        dataIndex: 'carOutFare'
     }, {
-        header: '出口站',
+        header: '其它客车出口流量',
         width: 160,
-        dataIndex: 'exitName'
+        dataIndex: 'ectOutCount'
     }, {
-        header: '出口时间',
+        header: '其它客车出口免征金额',
         width: 140,
-        dataIndex: 'exitDate'
+        dataIndex: 'ectOutFare'
     }, {
-        header: '入口车型',
-        width: 80,
-        dataIndex: 'vEnte'
+        header: '货车出口流量',
+        width: 160,
+        dataIndex: 'truckOutCount'
     }, {
-        header: '出口车型',
-        width: 80,
-        dataIndex: 'vExit'
+        header: '货车出口免征金额',
+        width: 140,
+        dataIndex: 'truckOutFare'
     }, {
-        header: '收费类型',
-        width: 90,
-        dataIndex: 'tollType'
+        header: '绿色通道出口流量',
+        width: 160,
+        dataIndex: 'greenOutCount'
     }, {
-        header: '应收金额',
-        width: 90,
-        align: 'right',
-        dataIndex: 'receivable'
+        header: '绿色通道出口免征金额',
+        width: 140,
+        dataIndex: 'greenOutFare'
     }, {
-        header: '应免金额',
-        width: 90,
-        align: 'right',
-        dataIndex: 'exemption'
+        header: '闯关车出口流量',
+        width: 160,
+        dataIndex: 'passOutCount'
     }, {
-        header: '实收金额',
-        width: 90,
-        align: 'right',
-        dataIndex: 'totalFare'
+        header: '闯关车出口免征金额',
+        width: 140,
+        dataIndex: 'passOutFare'
     }, {
-        header: '实免金额',
-        width: 90,
-        align: 'right',
-        dataIndex: 'solidFree'
+        header: '小型车入口流量',
+        width: 140,
+        dataIndex: 'carInCount'
     }, {
-        header: '车牌',
-        width: 100,
-        dataIndex: 'carExitcodeRecognize'
+        header: '小型车入口免征金额',
+        width: 140,
+        dataIndex: 'carInFare'
+    }, {
+        header: '小型车入口流量',
+        width: 140,
+        dataIndex: 'ectInCount'
+    }, {
+        header: '客车入口流量',
+        width: 140,
+        dataIndex: 'truckInCount'
+    }, {
+        header: '绿色通道入口流量',
+        width: 140,
+        dataIndex: 'greenInCount'
+    }, {
+        header: '闯关车入口流量',
+        width: 140,
+        dataIndex: 'passInCount'
     }],
     
     /**
@@ -85,11 +93,7 @@ Ext.define('FreeCarReportModule.view.GridPanel', {
             	label: '车牌号', 
             	paramName: 'carCode',
             	hideAxisum: true
-    		},
-        	bbar: {// Bottom bar
-        		xtype: 'paging',
-        		store: store
-        	}
+    		}
     	});
     	// Call Parent Constructor
         this.callParent(arguments);

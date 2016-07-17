@@ -2,9 +2,9 @@ Ext.define('FreeCarReportModule.model.FreeCarReportModel', {
 	extend: 'Ext.data.Model',
 	
 	fields: [
-         'recordNo', 'enteName', 'exitName', 'vEnte', 
-         'vExit', 'exitDate', 'enteDate', 'totalFare', 
-         'carExitcodeRecognize', 'tollType', 'solidFree',
-         'receivable', 'exemption'
+         'carOutCount', 'carOutFare', 'ectOutCount', 'ectOutFare', 
+         'truckOutCount', 'truckOutFare', 'greenOutCount', 'greenOutFare', 
+         'passOutCount', 'passOutFare', 'carInCount', 'truckInCount',
+         'carInFare', 'ectInCount', 'greenInCount', 'passInCount'
     ]
 });

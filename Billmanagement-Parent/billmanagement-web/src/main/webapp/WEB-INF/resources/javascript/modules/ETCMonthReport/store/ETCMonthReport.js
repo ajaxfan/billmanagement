@@ -7,11 +7,11 @@ Ext.define('ETCMonthReportModule.store.ETCMonthReport', {
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
-        url : 'services/freeTimeList',//请求
+        url : 'services/etcMonthDataList',//请求
         reader: {
             type: 'json',
             root: 'items',
-            idProperty: 'recordNo',
+            idProperty: 'employeeNo',
             totalProperty: 'totalCount'
         }
     }

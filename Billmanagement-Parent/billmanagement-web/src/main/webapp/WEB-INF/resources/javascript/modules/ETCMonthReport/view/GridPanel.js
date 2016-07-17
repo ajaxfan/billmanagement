@@ -3,9 +3,7 @@ Ext.define('ETCMonthReportModule.view.GridPanel', {
 	alias: 'widget.gridpanel',
 	
 	requires: [
-       "Ext.plugins.QueryCriteriaToolbar", 
-       "Ext.plugins.PicColumn", 
-       "Ext.plugins.Paging"
+       "Ext.plugins.QueryCriteriaToolbar"
 	],
     defaults:{ sortable: true },
     columns: [{ 
@@ -14,59 +12,45 @@ Ext.define('ETCMonthReportModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
-    	xtype: 'piccolumn' 
-    }, {
-        header: '入口站',
+        header: '员工编号',
         width: 160,
-        dataIndex: 'enteName'
+        dataIndex: 'employeeNo'
     }, {
-        header: '入口时间',
+        header: '员工名',
         width: 140,
-        dataIndex: 'enteDate'
-    }, {
-        header: '出口站',
-        width: 160,
-        dataIndex: 'exitName'
-    }, {
-        header: '出口时间',
-        width: 140,
-        dataIndex: 'exitDate'
-    }, {
-        header: '入口车型',
-        width: 80,
-        dataIndex: 'vEnte'
-    }, {
-        header: '出口车型',
-        width: 80,
-        dataIndex: 'vExit'
-    }, {
-        header: '收费类型',
-        width: 90,
-        dataIndex: 'tollType'
+        dataIndex: 'employeeName'
     }, {
         header: '应收金额',
-        width: 90,
-        align: 'right',
-        dataIndex: 'receivable'
-    }, {
-        header: '应免金额',
-        width: 90,
-        align: 'right',
-        dataIndex: 'exemption'
+        width: 160,
+        dataIndex: 'receivableFare'
     }, {
         header: '实收金额',
-        width: 90,
-        align: 'right',
-        dataIndex: 'totalFare'
+        width: 140,
+        dataIndex: 'receiveFare'
     }, {
-        header: '实免金额',
-        width: 90,
-        align: 'right',
-        dataIndex: 'solidFree'
+        header: '1型',
+        width: 80,
+        dataIndex: 'typeOne'
     }, {
-        header: '车牌',
-        width: 100,
-        dataIndex: 'carExitcodeRecognize'
+        header: '2型',
+        width: 80,
+        dataIndex: 'typeTwo'
+    }, {
+        header: '3型',
+        width: 80,
+        dataIndex: 'typeThree'
+    }, {
+        header: '4型',
+        width: 80,
+        dataIndex: 'typeFour'
+    }, {
+        header: '5型',
+        width: 80,
+        dataIndex: 'typeFive'
+    }, {
+        header: '总车流量',
+        width: 90,
+        dataIndex: 'totalCarCount'
     }],
     
     /**
@@ -85,11 +69,7 @@ Ext.define('ETCMonthReportModule.view.GridPanel', {
             	label: '车牌号', 
             	paramName: 'carCode',
             	hideAxisum: true
-    		},
-        	bbar: {// Bottom bar
-        		xtype: 'paging',
-        		store: store
-        	}
+    		}
     	});
     	// Call Parent Constructor
         this.callParent(arguments);

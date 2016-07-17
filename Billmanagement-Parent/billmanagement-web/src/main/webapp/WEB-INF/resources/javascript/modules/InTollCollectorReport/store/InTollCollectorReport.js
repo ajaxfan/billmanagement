@@ -7,11 +7,11 @@ Ext.define('InTollCollectorReportModule.store.InTollCollectorReport', {
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
-        url : 'services/freeTimeList',//请求
+        url : 'services/inCollectorDataList',//请求
         reader: {
             type: 'json',
             root: 'items',
-            idProperty: 'recordNo',
+            idProperty: 'billNo',
             totalProperty: 'totalCount'
         }
     }

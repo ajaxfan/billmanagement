@@ -7,11 +7,11 @@ Ext.define('MTCMonthReportModule.store.MTCMonthReport', {
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
-        url : 'services/freeTimeList',//请求
+        url : 'services/mtcMonthDataList',//请求
         reader: {
             type: 'json',
             root: 'items',
-            idProperty: 'recordNo',
+            idProperty: 'employeeNo',
             totalProperty: 'totalCount'
         }
     }

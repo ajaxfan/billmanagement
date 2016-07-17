@@ -3,9 +3,7 @@ Ext.define('InTollCollectorReportModule.view.GridPanel', {
 	alias: 'widget.gridpanel',
 	
 	requires: [
-       "Ext.plugins.QueryCriteriaToolbar", 
-       "Ext.plugins.PicColumn", 
-       "Ext.plugins.Paging"
+       "Ext.plugins.QueryCriteriaToolbar"
 	],
     defaults:{ sortable: true },
     columns: [{ 
@@ -14,59 +12,81 @@ Ext.define('InTollCollectorReportModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
-    	xtype: 'piccolumn' 
-    }, {
-        header: '入口站',
+        header: '票号',
         width: 160,
-        dataIndex: 'enteName'
+        dataIndex: 'billNo'
     }, {
-        header: '入口时间',
+        header: '名称',
         width: 140,
-        dataIndex: 'enteDate'
+        dataIndex: 'billName'
     }, {
-        header: '出口站',
+        header: '应收卡',
         width: 160,
-        dataIndex: 'exitName'
+        dataIndex: 'receivableCard'
     }, {
-        header: '出口时间',
+        header: '实收卡',
         width: 140,
-        dataIndex: 'exitDate'
+        dataIndex: 'receiveCard'
     }, {
-        header: '入口车型',
+        header: 'passCar',
         width: 80,
-        dataIndex: 'vEnte'
+        dataIndex: 'passCar'
     }, {
-        header: '出口车型',
+        header: 'noCard',
         width: 80,
-        dataIndex: 'vExit'
+        dataIndex: 'noCard'
     }, {
-        header: '收费类型',
+        header: 'arrears',
         width: 90,
-        dataIndex: 'tollType'
+        dataIndex: 'arrears'
     }, {
-        header: '应收金额',
-        width: 90,
-        align: 'right',
-        dataIndex: 'receivable'
-    }, {
-        header: '应免金额',
-        width: 90,
-        align: 'right',
-        dataIndex: 'exemption'
-    }, {
-        header: '实收金额',
+        header: 'totalFare',
         width: 90,
         align: 'right',
         dataIndex: 'totalFare'
     }, {
-        header: '实免金额',
+        header: 'receivableInvalid',
         width: 90,
         align: 'right',
-        dataIndex: 'solidFree'
+        dataIndex: 'receivableInvalid'
     }, {
-        header: '车牌',
+        header: 'receiveInvalid',
+        width: 90,
+        align: 'right',
+        dataIndex: 'receiveInvalid'
+    }, {
+        header: 'invalidCard',
+        width: 90,
+        align: 'right',
+        dataIndex: 'invalidCard'
+    }, {
+        header: 'militaryVehicle',
         width: 100,
-        dataIndex: 'carExitcodeRecognize'
+        dataIndex: 'militaryVehicle'
+    }, {
+        header: 'freeCar',
+        width: 100,
+        dataIndex: 'freeCar'
+    }, {
+        header: 'ucrossCar',
+        width: 100,
+        dataIndex: 'ucrossCar'
+    }, {
+        header: 'manageCar',
+        width: 100,
+        dataIndex: 'manageCar'
+    }, {
+        header: 'harvester',
+        width: 100,
+        dataIndex: 'harvester'
+    }, {
+        header: 'urgentCar',
+        width: 100,
+        dataIndex: 'urgentCar'
+    }, {
+        header: 'billCount',
+        width: 100,
+        dataIndex: 'billCount'
     }],
     
     /**
@@ -85,11 +105,7 @@ Ext.define('InTollCollectorReportModule.view.GridPanel', {
             	label: '车牌号', 
             	paramName: 'carCode',
             	hideAxisum: true
-    		},
-        	bbar: {// Bottom bar
-        		xtype: 'paging',
-        		store: store
-        	}
+    		}
     	});
     	// Call Parent Constructor
         this.callParent(arguments);

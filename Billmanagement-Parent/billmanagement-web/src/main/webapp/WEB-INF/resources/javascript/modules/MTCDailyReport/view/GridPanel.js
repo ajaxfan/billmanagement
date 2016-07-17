@@ -3,9 +3,7 @@ Ext.define('MTCDailyReportModule.view.GridPanel', {
 	alias: 'widget.gridpanel',
 	
 	requires: [
-       "Ext.plugins.QueryCriteriaToolbar", 
-       "Ext.plugins.PicColumn", 
-       "Ext.plugins.Paging"
+       "Ext.plugins.QueryCriteriaToolbar"
 	],
     defaults:{ sortable: true },
     columns: [{ 
@@ -14,59 +12,71 @@ Ext.define('MTCDailyReportModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
-    	xtype: 'piccolumn' 
-    }, {
-        header: '入口站',
+        header: '人员编号',
         width: 160,
-        dataIndex: 'enteName'
+        dataIndex: 'employeeNo'
     }, {
-        header: '入口时间',
+        header: '人员名称',
         width: 140,
-        dataIndex: 'enteDate'
+        dataIndex: 'employeeName'
     }, {
-        header: '出口站',
+        header: '吉林费额',
         width: 160,
-        dataIndex: 'exitName'
+        dataIndex: 'jilinFare'
     }, {
-        header: '出口时间',
+        header: '内蒙费额',
         width: 140,
-        dataIndex: 'exitDate'
+        dataIndex: 'neimengFare'
     }, {
-        header: '入口车型',
+        header: '应收费额',
         width: 80,
-        dataIndex: 'vEnte'
+        dataIndex: 'receivableFare'
     }, {
-        header: '出口车型',
+        header: '实收费额',
         width: 80,
-        dataIndex: 'vExit'
+        dataIndex: 'receivedFare'
     }, {
-        header: '收费类型',
+        header: '短款',
+        width: 80,
+        dataIndex: 'shortFare'
+    }, {
+        header: '长款',
         width: 90,
-        dataIndex: 'tollType'
+        dataIndex: 'longFare'
     }, {
-        header: '应收金额',
-        width: 90,
-        align: 'right',
-        dataIndex: 'receivable'
-    }, {
-        header: '应免金额',
-        width: 90,
-        align: 'right',
-        dataIndex: 'exemption'
-    }, {
-        header: '实收金额',
+        header: '欠费',
         width: 90,
         align: 'right',
-        dataIndex: 'totalFare'
+        dataIndex: 'arrears'
     }, {
-        header: '实免金额',
+        header: '1型',
         width: 90,
         align: 'right',
-        dataIndex: 'solidFree'
+        dataIndex: 'typeOne'
     }, {
-        header: '车牌',
+        header: '2型',
+        width: 90,
+        align: 'right',
+        dataIndex: 'typeTwo'
+    }, {
+        header: '3型',
+        width: 90,
+        align: 'right',
+        dataIndex: 'typeThree'
+    }, {
+        header: '4型',
+        width: 90,
+        align: 'right',
+        dataIndex: 'typeFour'
+    }, {
+        header: '5型',
+        width: 90,
+        align: 'right',
+        dataIndex: 'typeFive'
+    }, {
+        header: 'cash',
         width: 100,
-        dataIndex: 'carExitcodeRecognize'
+        dataIndex: 'cash'
     }],
     
     /**
@@ -85,11 +95,7 @@ Ext.define('MTCDailyReportModule.view.GridPanel', {
             	label: '车牌号', 
             	paramName: 'carCode',
             	hideAxisum: true
-    		},
-        	bbar: {// Bottom bar
-        		xtype: 'paging',
-        		store: store
-        	}
+    		}
     	});
     	// Call Parent Constructor
         this.callParent(arguments);
