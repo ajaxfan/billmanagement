@@ -1,11 +1,14 @@
 package com.expressway.billmanagement.data.models;
 
+import javax.persistence.Id;
+
 /**
  * 票据使用明细数据模型
  * 
  * @author Ajaxfan
  */
 public class BillUseDetail {
+    @Id
     private String employeeNo;
     private String employeeName;
     private String enteName;

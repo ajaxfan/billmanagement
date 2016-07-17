@@ -1,11 +1,14 @@
 package com.expressway.billmanagement.data.models;
 
+import javax.persistence.Id;
+
 /**
  * MTC报表数据模型
  * 
  * @author Ajaxfan
  */
 public class MTCReport {
+    @Id
     private String employeeNo;
     private String employeeName;
     private String jilinFare;

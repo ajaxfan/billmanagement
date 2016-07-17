@@ -20,7 +20,7 @@
     <mvc:resources mapping="/javascript/**" location="/WEB-INF/resources/javascript/" />
     <mvc:resources mapping="/styles/**" location="/WEB-INF/resources/css/" />
     <mvc:resources mapping="/images/**" location="/WEB-INF/resources/images/" />
-    <mvc:resources mapping="/applets/**" location="/WEB-INF/resources/applets/images/" />
+    <mvc:resources mapping="/applets/**" location="/WEB-INF/resources/applets/" />
 
     <!-- freemarker config -->
     <bean id="freemarkerConfig"

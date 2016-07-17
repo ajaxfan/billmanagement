@@ -2,90 +2,78 @@ Ext.define('InTollCollectorReportModule.view.GridPanel', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.gridpanel',
 	
-	requires: [
-       "Ext.plugins.QueryCriteriaToolbar"
-	],
-    defaults:{ sortable: true },
+    defaults:{ sortable: true},
     columns: [{ 
     	xtype: 'rownumberer',
-    	align: 'center',
         header: '序号',
-    	width: 50
+    	width: 60
 	}, {
         header: '票号',
         width: 160,
         dataIndex: 'billNo'
     }, {
-        header: '名称',
-        width: 140,
-        dataIndex: 'billName'
-    }, {
         header: '应收卡',
-        width: 160,
+        width: 75,
         dataIndex: 'receivableCard'
     }, {
         header: '实收卡',
-        width: 140,
+        width: 70,
         dataIndex: 'receiveCard'
     }, {
-        header: 'passCar',
-        width: 80,
+        header: '闯关',
+        width: 70,
         dataIndex: 'passCar'
     }, {
-        header: 'noCard',
-        width: 80,
+        header: '无卡',
+        width: 70,
         dataIndex: 'noCard'
     }, {
-        header: 'arrears',
-        width: 90,
+        header: '欠费数',
+        width: 70,
         dataIndex: 'arrears'
     }, {
-        header: 'totalFare',
-        width: 90,
-        align: 'right',
+        header: '金额',
+        width: 70,
         dataIndex: 'totalFare'
     }, {
-        header: 'receivableInvalid',
-        width: 90,
-        align: 'right',
+        header: '应交废票',
+        width: 80,
         dataIndex: 'receivableInvalid'
     }, {
-        header: 'receiveInvalid',
-        width: 90,
-        align: 'right',
+        header: '实交废票',
+        width: 80,
         dataIndex: 'receiveInvalid'
     }, {
-        header: 'invalidCard',
-        width: 90,
-        align: 'right',
+        header: '坏卡张数',
+        width: 80,
         dataIndex: 'invalidCard'
     }, {
-        header: 'militaryVehicle',
-        width: 100,
+        header: '军车',
+        width: 70,
         dataIndex: 'militaryVehicle'
     }, {
-        header: 'freeCar',
-        width: 100,
+        header: '免费车',
+        width: 70,
         dataIndex: 'freeCar'
     }, {
-        header: 'ucrossCar',
-        width: 100,
+        header: 'U0',
+        width: 70,
         dataIndex: 'ucrossCar'
     }, {
-        header: 'manageCar',
-        width: 100,
+        header: '管理车',
+        width: 70,
         dataIndex: 'manageCar'
     }, {
-        header: 'harvester',
-        width: 100,
+        header: '收割机',
+        width: 70,
         dataIndex: 'harvester'
     }, {
-        header: 'urgentCar',
-        width: 100,
+        header: '紧急数',
+        width: 80,
         dataIndex: 'urgentCar'
     }, {
-        header: 'billCount',
-        width: 100,
+        header: '张数',
+        width: 80,
         dataIndex: 'billCount'
     }],
     
@@ -99,15 +87,46 @@ Ext.define('InTollCollectorReportModule.view.GridPanel', {
     	// Copy properties to Origin Object
     	Ext.apply(this, {
     		store: store,
-    		tbar: {// Top bar
-    			xtype: 'querycriteriatoolbar',
-            	store: store, 
-            	label: '车牌号', 
-            	paramName: 'carCode',
-            	hideAxisum: true
-    		}
+    		tbar: Ext.create('Ext.toolbar.Toolbar', {
+                items: [{
+            		fieldLabel: '统计日期',
+            		labelAlign: 'right',
+            		width: 210,
+            		labelWidth: 80,
+    	           	id: 'beginDate',
+    	   	        xtype: 'datefield',
+    	   	        format: 'Y/m/d',
+    	   	        editable: false,
+    	   	        value: new Date()
+            	}, {
+                    text: '查询',
+                    iconCls: 'search',
+                    action: 'search',
+	 	   		    listeners: {
+		   			   click: function() {
+		   				    var proxy = store.getProxy();
+			   		        var beginDate = Ext.util.Format.date(Ext.getCmp("beginDate").getValue(), 'Y/m/d');
+			   		        proxy.extraParams = store.baseParams || {};
+			   		        proxy.extraParams["beginDate"] = beginDate;// 要统计的日期
+			   		        
+			   		        store.reload();
+		   			   }
+		   		    }
+                }, '->', {
+                    text: '打印报表',
+      	   		    id: 'searchBtn',
+                    iconCls: 'print',
+                    action: 'del',
+	 	   		    listeners: {
+		   			   click: function() {
+		   				    var applet = document.getElementById("reportApplet");
+		   				    
+		   				    applet.ppr("tollCollectorReportService", {date: store.getProxy().extraParams["beginDate"]});
+		   			   }
+		   		    }
+                }]
+            })
     	});
-    	// Call Parent Constructor
         this.callParent(arguments);
     }
 });

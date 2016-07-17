@@ -2,9 +2,6 @@ Ext.define('MTCMonthReportModule.view.GridPanel', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.gridpanel',
 	
-	requires: [
-       "Ext.plugins.QueryCriteriaToolbar"
-	],
     defaults:{ sortable: true },
     columns: [{ 
     	xtype: 'rownumberer',
@@ -89,13 +86,45 @@ Ext.define('MTCMonthReportModule.view.GridPanel', {
     	// Copy properties to Origin Object
     	Ext.apply(this, {
     		store: store,
-    		tbar: {// Top bar
-    			xtype: 'querycriteriatoolbar',
-            	store: store, 
-            	label: '车牌号', 
-            	paramName: 'carCode',
-            	hideAxisum: true
-    		}
+    		tbar: Ext.create('Ext.toolbar.Toolbar', {
+                items: [{
+            		fieldLabel: '统计日期',
+            		labelAlign: 'right',
+            		width: 210,
+            		labelWidth: 80,
+    	           	id: 'beginDate',
+    	   	        xtype: 'datefield',
+    	   	        format: 'Y/m',
+    	   	        editable: false,
+    	   	        value: new Date()
+            	}, {
+                    text: '查询',
+                    iconCls: 'search',
+                    action: 'search',
+	 	   		    listeners: {
+		   			   click: function() {
+		   				    var proxy = store.getProxy();
+			   		        var beginDate = Ext.util.Format.date(Ext.getCmp("beginDate").getValue(), 'Y/m');
+			   		        proxy.extraParams = store.baseParams || {};
+			   		        proxy.extraParams["beginDate"] = beginDate;// 要统计的日期
+			   		        
+			   		        store.reload();
+		   			   }
+		   		    }
+                }, '->', {
+                    text: '打印报表',
+      	   		    id: 'searchBtn',
+                    iconCls: 'print',
+                    action: 'del',
+	 	   		    listeners: {
+		   			   click: function() {
+		   				    var applet = document.getElementById("reportApplet");
+		   				    
+		   				    applet.ppr("tollCollectorReportService", {date: store.getProxy().extraParams["beginDate"]});
+		   			   }
+		   		    }
+                }]
+            })
     	});
     	// Call Parent Constructor
         this.callParent(arguments);

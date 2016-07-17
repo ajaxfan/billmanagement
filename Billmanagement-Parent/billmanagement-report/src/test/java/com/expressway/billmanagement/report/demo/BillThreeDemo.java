@@ -34,7 +34,7 @@ public class BillThreeDemo {
 	private static List createList() {
 		List list = new ArrayList();
 
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 1; i++) {
 			BillThree bean = new BillThree();
 			bean.setArrears("456798");
 			bean.setBillCount("1245679");

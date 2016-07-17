@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>  
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- MTC报表数据-->
+<!-- MTC报表数据 -->
 <mapper namespace="com.expressway.billmanagement.data.mappers.MTCReportMapper">
-	<select id="findByCondition" resultType="BillThree" parameterType="ConditionFiled">
-	    select * from mtc_statistics t
+	<resultMap id="resultMap" type="MTCReport">
+		<id property="employeeNo" column="MTCReport" />
+		<result property="employeeName" column="employeeName" />
+		<result property="jilinFare" column="jilinFare" />
+		<result property="neimengFare" column="neimengFare" />
+		<result property="receivedFare" column="receivedFare" />
+		<result property="shortFare" column="shortFare" />
+		<result property="arrears" column="arrears" />
+		<result property="typeOne" column="typeOne" />
+		<result property="typeTwo" column="typeTwo" />
+		<result property="typeThree" column="typeThree" />
+		<result property="typeFour" column="typeFour" />
+		<result property="typeFive" column="typeFive" />
+		<result property="cash" column="cash" />
+		<result property="receivableFare" column="receivableFare" />
+	</resultMap>
+
+	<select id="findByCondition" resultMap="resultMap"
+		parameterType="ConditionFiled">
+		select * from mtc_statistics t
 	</select>
 </mapper>

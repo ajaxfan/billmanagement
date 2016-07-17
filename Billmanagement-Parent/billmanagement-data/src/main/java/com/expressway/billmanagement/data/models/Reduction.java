@@ -1,11 +1,14 @@
 package com.expressway.billmanagement.data.models;
 
+import javax.persistence.Id;
+
 /**
  * 免费车数据模型
  * 
  * @author Ajaxfan
  */
 public class Reduction {
+    @Id
     private String carOutCount;
     private String carOutFare;
     private String ectOutCount;

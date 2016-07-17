@@ -12,6 +12,7 @@
 
 	<!-- 实体类别名 -->
 	<typeAliases>
+		<typeAlias type="com.expressway.billmanagement.data.protocal.ConditionFiled" alias="ConditionFiled"/>
 		<package name="com.expressway.billmanagement.data.models" />
 	</typeAliases>
 

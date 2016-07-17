@@ -2,7 +2,8 @@ Ext.define('InTollCollectorReportModule.controller.InTollCollectorReportControll
     extend: 'Ext.app.Controller',
     
     refs: [
-        {ref: 'gridPanel', selector: 'gridpanel'}
+        {ref: 'gridPanel', selector: 'gridpanel'},
+        {ref: 'searchBtn', selector: 'gridPanel #searchBtn'}
     ],
     
     /**
@@ -16,10 +17,9 @@ Ext.define('InTollCollectorReportModule.controller.InTollCollectorReportControll
 	    // 设置焦点
         store.on("load", function(){
         	gridPanel.getSelectionModel().select(0);
-        	var comp = Ext.getCmp('queryField');
-        	if(comp) {
-        		Ext.getCmp('queryField').focus(true, 100);
-    		}
+        });
+        store.load({
+        	beginDate: Ext.util.Format.date(new Date(), 'Y/m/d')
         });
 	}
 });

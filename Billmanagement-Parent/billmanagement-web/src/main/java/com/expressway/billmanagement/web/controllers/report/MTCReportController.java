@@ -34,8 +34,8 @@ public class MTCReportController {
         List list = mtcreportService.getDailyData(cf);
 
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("totalCount", list);// 记录总数
-        map.put("items", list.size());// 记录行对象
+        map.put("totalCount", list.size());// 记录总数
+        map.put("items", list);// 记录行对象
 
         return map;
     }
@@ -52,8 +52,8 @@ public class MTCReportController {
         List list = mtcreportService.getMonthData(cf);
 
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("totalCount", list);// 记录总数
-        map.put("items", list.size());// 记录行对象
+        map.put("totalCount", list.size());// 记录总数
+        map.put("items", list);// 记录行对象
 
         return map;
     }
@@ -70,8 +70,8 @@ public class MTCReportController {
         List list = mtcreportService.getYearData(cf);
 
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("totalCount", list);// 记录总数
-        map.put("items", list.size());// 记录行对象
+        map.put("totalCount", list.size());// 记录总数
+        map.put("items", list);// 记录行对象
 
         return map;
     }

@@ -3,15 +3,16 @@ package org.billmanagement.data;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.expressway.billmanagement.data.mappers.SystemUserMapper;
+import com.expressway.billmanagement.data.mappers.BillThreeMapper;
+import com.expressway.billmanagement.data.models.BillThree;
 
 public class DataModuleTest {
     @Test
     public void test() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:spring-*.xml");
-        SystemUserMapper mapper = (SystemUserMapper) context.getBean("systemUserMapper");
+        BillThreeMapper mapper = (BillThreeMapper) context.getBean("billThreeMapper");
 
-        System.out.println(mapper.selectAll().size());
+        System.out.println(((BillThree)(mapper.findByCondition(null).get(0))).getBillCount());
 
         context.close();
     }

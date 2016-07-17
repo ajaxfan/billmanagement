@@ -21,10 +21,8 @@ import com.expressway.billmanagement.service.IBillUseDetailService;
 @RequestMapping(value = "services", method = { RequestMethod.POST })
 public class BillUseDetailController {
     private @Autowired IBillUseDetailService billUseDetailService;
-
+    
     /**
-     * 坏卡
-     *
      * @param limit
      *            开始索引
      * @param start
@@ -36,8 +34,8 @@ public class BillUseDetailController {
         List list = billUseDetailService.getData(cf);
 
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("totalCount", list);// 记录总数
-        map.put("items", list.size());// 记录行对象
+        map.put("totalCount", list.size());// 记录总数
+        map.put("items", list);// 记录行对象
 
         return map;
     }

@@ -18,13 +18,18 @@ public class ClientApplet extends Applet {
 
     /**
      * 打印报表对象
+     * 
      * @param reportName
      */
-    public void ppr(String reportName) {
-        String urlbase = "/reportService?";
+    public void ppr(String serviceName, String params) {
+        String urlbase = "/" + getParameter("WebName") + "/services/" + serviceName + "?";
+        
+        System.out.println(getParameter("WebName"));
 
         try {
-            URL url = new URL(getCodeBase(), urlbase + "name=" + reportName);
+            URL url = new URL(getCodeBase(), urlbase);
+            
+            System.out.println((JasperPrint) JRLoader.loadObject(url));
 
             JasperPrintManager.printReport((JasperPrint) JRLoader.loadObject(url), false);
         } catch (Exception e) {

@@ -1,13 +1,16 @@
 package com.expressway.billmanagement.data.models;
 
+import javax.persistence.Id;
+
 /**
  * 三联单数据模型
  * 
  * @author Ajaxfan
  */
 public class BillThree {
-    private String billName;
+    @Id
     private String billNo;
+    private String billName;
     private String receivableCard;
     private String receiveCard;
     private String passCar;

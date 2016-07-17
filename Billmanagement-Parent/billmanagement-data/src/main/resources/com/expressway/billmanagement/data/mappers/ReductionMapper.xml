@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>  
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 减免情况统计报表-->
+<!-- 减免情况统计报表 -->
 <mapper namespace="com.expressway.billmanagement.data.mappers.ReductionMapper">
-	<select id="findByCondition" resultType="BillThree" parameterType="ConditionFiled">
-	    select * from reduction_report t
+	<resultMap id="resultMap" type="Reduction">
+		<id property="carOutCount" column="carOutCount" />
+		<result property="carOutFare" column="carOutFare" />
+		<result property="ectOutCount" column="ectOutCount" />
+		<result property="ectOutFare" column="ectOutFare" />
+		<result property="truckOutCount" column="truckOutCount" />
+		<result property="truckOutFare" column="truckOutFare" />
+		<result property="greenOutCount" column="greenOutCount" />
+		<result property="greenOutFare" column="greenOutFare" />
+		<result property="passOutCount" column="passOutCount" />
+		<result property="passOutFare" column="passOutFare" />
+		<result property="carInCount" column="carInCount" />
+		<result property="carInFare" column="carInFare" />
+		<result property="ectInCount" column="ectInCount" />
+		<result property="truckInCount" column="truckInCount" />
+		<result property="greenInCount" column="greenInCount" />
+		<result property="passInCount" column="passInCount" />
+	</resultMap>
+	
+	<select id="findByCondition" resultMap="resultMap"
+		parameterType="ConditionFiled">
+		select * from reduction_report t
 	</select>
 </mapper>

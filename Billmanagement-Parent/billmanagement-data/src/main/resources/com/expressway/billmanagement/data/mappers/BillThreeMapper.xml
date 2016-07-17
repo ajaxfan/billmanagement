@@ -3,7 +3,28 @@
 
 <!-- 三联单信息查询 -->
 <mapper namespace="com.expressway.billmanagement.data.mappers.BillThreeMapper">
-	<select id="findByCondition" resultType="BillThree" parameterType="ConditionFiled">
-	    select * from bill_three t
+	<resultMap id="resultMap" type="BillThree">
+		<id property="billNo" column="billNo" />
+		<result property="billName" column="billName"/>
+		<result property="receivableCard" column="receivableCard" />
+		<result property="passCar" column="passCar" />
+		<result property="noCard" column="noCard" />
+		<result property="arrears" column="arrears" />
+		<result property="totalFare" column="totalFare" />
+		<result property="receivableInvalid" column="receivableInvalid" />
+		<result property="receiveInvalid" column="receiveInvalid" />
+		<result property="invalidCard" column="invalidCard" />
+		<result property="militaryVehicle" column="militaryVehicle" />
+		<result property="freeCar" column="freeCar" />
+		<result property="ucrossCar" column="ucrossCar" />
+		<result property="manageCar" column="manageCar" />
+		<result property="harvester" column="harvester" />
+		<result property="urgentCar" column="urgentCar" />
+		<result property="billCount" column="billCount" />
+	</resultMap>
+
+	<select id="findByCondition" resultMap="resultMap"
+		parameterType="ConditionFiled">
+		select * from bill_three t
 	</select>
 </mapper>

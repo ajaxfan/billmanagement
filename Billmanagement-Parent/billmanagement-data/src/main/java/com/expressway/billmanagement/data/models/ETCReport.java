@@ -1,11 +1,14 @@
 package com.expressway.billmanagement.data.models;
 
+import javax.persistence.Id;
+
 /**
  * ETC报表数据模型
  * 
  * @author Ajaxfan
  */
 public class ETCReport {
+    @Id
     private String employeeNo;
     private String employeeName;
     private String receivableFare;
