@@ -3,7 +3,7 @@ package com.expressway.billmanagement.data.helpers;
 /**
  * 字符串工具
  * 
- * @author FXStudio.Ajaxfan
+ * @author Kalo
  */
 public final class StringHelper {
 	/**

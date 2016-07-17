@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.expressway.billmanagement.data.models.SystemGroup;
 import com.expressway.billmanagement.data.models.SystemUser;
+import com.expressway.billmanagement.data.protocal.ConditionFiled;
 import com.expressway.billmanagement.service.ISystemGroupService;
 import com.expressway.billmanagement.service.ISystemGroupToMenuService;
 import com.expressway.billmanagement.service.ISystemUserService;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
-import com.expressway.billmanagement.service.protocal.ConditionFiled;
 import com.github.pagehelper.PageInfo;
 
 /**

@@ -5,7 +5,7 @@ import tk.mybatis.mapper.entity.Example;
 /**
  * 数据查询条件
  * 
- * @author Ajaxfan
+ * @author Kalo
  */
 public class Condition extends Example {
     /**

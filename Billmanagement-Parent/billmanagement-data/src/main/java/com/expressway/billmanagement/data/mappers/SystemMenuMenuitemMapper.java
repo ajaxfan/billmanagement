@@ -7,7 +7,7 @@ import tk.mybatis.mapper.common.Mapper;
 /**
  * 系统菜单、菜单项关系
  * 
- * @author FXStudio.Ajaxfan
+ * @author Kalo
  */
 public interface SystemMenuMenuitemMapper extends Mapper<SystemMenuMenuitem> {
 }

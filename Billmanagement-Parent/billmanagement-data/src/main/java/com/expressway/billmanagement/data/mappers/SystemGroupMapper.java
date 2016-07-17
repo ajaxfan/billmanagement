@@ -7,7 +7,7 @@ import tk.mybatis.mapper.common.Mapper;
 /**
  * 系统用户组
  * 
- * @author FXStudio.Ajaxfan
+ * @author Kalo
  */
 public interface SystemGroupMapper extends Mapper<SystemGroup>{
 }

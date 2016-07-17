@@ -13,11 +13,11 @@ import com.expressway.billmanagement.data.helpers.UUIDGenerator;
 import com.expressway.billmanagement.data.mappers.SystemUserMapper;
 import com.expressway.billmanagement.data.models.SystemGroup;
 import com.expressway.billmanagement.data.models.SystemUser;
+import com.expressway.billmanagement.data.protocal.ConditionFiled;
 import com.expressway.billmanagement.service.ISystemGroupService;
 import com.expressway.billmanagement.service.ISystemUserService;
 import com.expressway.billmanagement.service.helper.MD5Converter;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
-import com.expressway.billmanagement.service.protocal.ConditionFiled;
 
 import tk.mybatis.mapper.entity.Example.Criteria;
 

@@ -7,7 +7,7 @@ import tk.mybatis.mapper.common.Mapper;
 /**
  * 收费站
  * 
- * @author FXStudio.Ajaxfan
+ * @author Kalo
  */
 public interface FsOrgDeptMapper extends Mapper<FsOrgDept> {
 }

@@ -13,11 +13,11 @@ import com.expressway.billmanagement.data.mappers.SystemMenuMapper;
 import com.expressway.billmanagement.data.models.SystemMenu;
 import com.expressway.billmanagement.data.models.SystemMenuItem;
 import com.expressway.billmanagement.data.models.SystemMenuMenuitem;
+import com.expressway.billmanagement.data.protocal.ConditionFiled;
 import com.expressway.billmanagement.service.ISystemMenuItemService;
 import com.expressway.billmanagement.service.ISystemMenuService;
 import com.expressway.billmanagement.service.ISystemMenuToMenuItemService;
 import com.expressway.billmanagement.service.messages.FeedBackMessage;
-import com.expressway.billmanagement.service.protocal.ConditionFiled;
 import com.expressway.billmanagement.service.tree.CheckedNode;
 import com.expressway.billmanagement.service.tree.inters.INode;
 

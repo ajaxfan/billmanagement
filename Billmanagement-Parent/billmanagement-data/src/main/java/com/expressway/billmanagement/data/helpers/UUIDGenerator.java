@@ -5,7 +5,7 @@ import java.util.UUID;
 /**
  * UUID生成工具
  * 
- * @author FXStudio.Ajaxfan
+ * @author Kalo
  */
 public final class UUIDGenerator {
 	/**
