@@ -2,6 +2,7 @@ package com.expressway.billmanagement.service.tree;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import com.expressway.billmanagement.service.tree.inters.INode;
@@ -37,6 +38,12 @@ abstract class BaseNode implements INode {
 	 */
 	@Override
 	public List<INode> getChildren() {
+		Collections.sort(children, new Comparator<INode>() {
+			@Override
+			public int compare(INode o1, INode o2) {
+				return ((NormalNode)o1).getText().compareTo(((NormalNode)o2).getText());
+			}
+		});
 		return Collections.unmodifiableList(children);
 	}
 

@@ -1,6 +1,7 @@
 Ext.define('MTCMonthReportModule.view.GridPanel', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.gridpanel',
+	requires: ["Ext.ux.MonthField"],
 	
     defaults:{ sortable: true },
     columns: [{ 
@@ -10,19 +11,19 @@ Ext.define('MTCMonthReportModule.view.GridPanel', {
     	width: 50
 	}, {
         header: '人员编号',
-        width: 160,
+        width: 80,
         dataIndex: 'employeeNo'
     }, {
         header: '人员名称',
-        width: 140,
+        width: 80,
         dataIndex: 'employeeName'
     }, {
         header: '吉林费额',
-        width: 160,
+        width: 80,
         dataIndex: 'jilinFare'
     }, {
         header: '内蒙费额',
-        width: 140,
+        width: 80,
         dataIndex: 'neimengFare'
     }, {
         header: '应收费额',
@@ -34,45 +35,45 @@ Ext.define('MTCMonthReportModule.view.GridPanel', {
         dataIndex: 'receivedFare'
     }, {
         header: '短款',
-        width: 80,
+        width: 60,
         dataIndex: 'shortFare'
     }, {
         header: '长款',
-        width: 90,
+        width: 60,
         dataIndex: 'longFare'
     }, {
         header: '欠费',
-        width: 90,
+        width: 60,
         align: 'right',
         dataIndex: 'arrears'
     }, {
         header: '1型',
-        width: 90,
+        width: 60,
         align: 'right',
         dataIndex: 'typeOne'
     }, {
         header: '2型',
-        width: 90,
+        width: 60,
         align: 'right',
         dataIndex: 'typeTwo'
     }, {
         header: '3型',
-        width: 90,
+        width: 60,
         align: 'right',
         dataIndex: 'typeThree'
     }, {
         header: '4型',
-        width: 90,
+        width: 60,
         align: 'right',
         dataIndex: 'typeFour'
     }, {
         header: '5型',
-        width: 90,
+        width: 60,
         align: 'right',
         dataIndex: 'typeFive'
     }, {
-        header: 'cash',
-        width: 100,
+        header: '现金',
+        width: 80,
         dataIndex: 'cash'
     }],
     
@@ -90,10 +91,10 @@ Ext.define('MTCMonthReportModule.view.GridPanel', {
                 items: [{
             		fieldLabel: '统计日期',
             		labelAlign: 'right',
-            		width: 210,
+            		width: 180,
             		labelWidth: 80,
     	           	id: 'beginDate',
-    	   	        xtype: 'datefield',
+    	   	        xtype: 'monthfield',
     	   	        format: 'Y/m',
     	   	        editable: false,
     	   	        value: new Date()

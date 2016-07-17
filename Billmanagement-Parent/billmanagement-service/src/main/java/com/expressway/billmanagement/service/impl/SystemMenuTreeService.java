@@ -42,6 +42,7 @@ final class SystemMenuTreeService implements ISystemMenuTreeService {
 	@Override
 	public List<INode> getSystemMenu(String depid) {
 		List<INode> list = new ArrayList<INode>();
+
 		// 通过管理表，获得用户可访问的所有菜单
 		for (SystemGroupMenu dm : getDeptMenus(depid)) {
 			SystemMenu sm = systemMenuMapper.selectByPrimaryKey(dm.getMenuid());// 菜单对象

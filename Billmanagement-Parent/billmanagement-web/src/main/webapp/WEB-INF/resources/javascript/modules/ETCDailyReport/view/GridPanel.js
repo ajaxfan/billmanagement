@@ -10,39 +10,39 @@ Ext.define('ETCDailyReportModule.view.GridPanel', {
     	width: 50
 	}, {
         header: '员工编号',
-        width: 160,
+        width: 80,
         dataIndex: 'employeeNo'
     }, {
         header: '员工名',
-        width: 140,
+        width: 80,
         dataIndex: 'employeeName'
     }, {
         header: '应收金额',
-        width: 160,
+        width: 80,
         dataIndex: 'receivableFare'
     }, {
         header: '实收金额',
-        width: 140,
+        width: 80,
         dataIndex: 'receiveFare'
     }, {
         header: '1型',
-        width: 80,
+        width: 60,
         dataIndex: 'typeOne'
     }, {
         header: '2型',
-        width: 80,
+        width: 60,
         dataIndex: 'typeTwo'
     }, {
         header: '3型',
-        width: 80,
+        width: 60,
         dataIndex: 'typeThree'
     }, {
         header: '4型',
-        width: 80,
+        width: 60,
         dataIndex: 'typeFour'
     }, {
         header: '5型',
-        width: 80,
+        width: 60,
         dataIndex: 'typeFive'
     }, {
         header: '总车流量',

@@ -2,36 +2,96 @@ Ext.define('BillUseDetailModule.view.GridPanel', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.gridpanel',
 	
-    defaults:{ sortable: true },
+    defaults:{ sortable: false},
     columns: [{ 
-    	xtype: 'rownumberer',
-    	align: 'center',
-        header: '序号',
-    	width: 50
+        header: '时间段',
+    	width: 160
 	}, {
-        header: '员工号',
-        width: 160,
+        header: '编号',
+        width: 80,
         dataIndex: 'employeeNo'
     }, {
-        header: '员工姓名',
-        width: 140,
+        header: '摘要',
+        width: 80,
         dataIndex: 'employeeName'
     }, {
-        header: '站名称',
-        width: 160,
-        dataIndex: 'enteName'
+        header: '领用数',
+        columns: [{
+            header: '起始号',
+            width: 140,
+            dataIndex: 'orderNo'
+        },{
+            header: '终止哈',
+            width: 140,
+            dataIndex: 'orderNo'
+        },{
+            header: '总数',
+            width: 140,
+            dataIndex: 'orderNo'
+        }]
     }, {
-        header: '票号',
-        width: 140,
-        dataIndex: 'orderNo'
+        header: '核销数',
+        columns: [{
+            header: '售出',
+            columns: [{
+                header: '起始号',
+                width: 140,
+                dataIndex: 'orderNo'
+            },{
+                header: '终止哈',
+                width: 140,
+                dataIndex: 'orderNo'
+            },{
+                header: '总数',
+                width: 140,
+                dataIndex: 'orderNo'
+            }]
+        },{
+            header: '作废',
+            columns: [{
+                header: '起始号',
+                width: 140,
+                dataIndex: 'orderNo'
+            },{
+                header: '终止哈',
+                width: 140,
+                dataIndex: 'orderNo'
+            },{
+                header: '总数',
+                width: 140,
+                dataIndex: 'orderNo'
+            }]
+        },{
+            header: '小计',
+            columns: [{
+                header: '起始号',
+                width: 140,
+                dataIndex: 'orderNo'
+            },{
+                header: '终止哈',
+                width: 140,
+                dataIndex: 'orderNo'
+            },{
+                header: '总数',
+                width: 140,
+                dataIndex: 'orderNo'
+            }]
+        }]
     }, {
-        header: '发票日期',
-        width: 80,
-        dataIndex: 'orderDate'
-    }, {
-        header: '总费额',
-        width: 80,
-        dataIndex: 'totalFare'
+        header: '结存数',
+        columns: [{
+            header: '起始号',
+            width: 140,
+            dataIndex: 'orderNo'
+        },{
+            header: '终止哈',
+            width: 140,
+            dataIndex: 'orderNo'
+        },{
+            header: '总数',
+            width: 140,
+            dataIndex: 'orderNo'
+        }]
     }],
     
     /**
@@ -46,15 +106,25 @@ Ext.define('BillUseDetailModule.view.GridPanel', {
     		store: store,
     		tbar: Ext.create('Ext.toolbar.Toolbar', {
                 items: [{
-            		fieldLabel: '统计日期',
+            		fieldLabel: '开始日期',
             		labelAlign: 'right',
-            		width: 210,
+            		width: 190,
             		labelWidth: 80,
     	           	id: 'beginDate',
     	   	        xtype: 'datefield',
     	   	        format: 'Y/m/d',
     	   	        editable: false,
     	   	        value: new Date()
+            	},{
+            		fieldLabel: '结束日期',
+            		labelAlign: 'right',
+            		width: 190,
+            		labelWidth: 70,
+    	           	id: 'endDate',
+    	   	        xtype: 'datefield',
+    	   	        format: 'Y/m/d',
+    	   	        editable: false,
+    	   			value: Ext.Date.add(new Date(), Ext.Date.DAY, 1)
             	}, {
                     text: '查询',
                     iconCls: 'search',

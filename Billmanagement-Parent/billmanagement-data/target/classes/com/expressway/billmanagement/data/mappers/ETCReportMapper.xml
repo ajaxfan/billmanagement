@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ETC报表数据-->
+<mapper namespace="com.expressway.billmanagement.data.mappers.ETCReportMapper">
+<resultMap id="resultMap" type="ETCReport">
+		<id property="employeeNo" column="employeeNo" />
+		<result property="employeeName" column="employeeName" />
+		<result property="receivableFare" column="receivableFare" />
+		<result property="receiveFare" column="receiveFare" />
+		<result property="orderDate" column="orderDate" />
+		<result property="typeOne" column="typeOne" />
+		<result property="typeTwo" column="typeTwo" />
+		<result property="typeThree" column="typeThree" />
+		<result property="typeFour" column="typeFour" />
+		<result property="typeFive" column="typeFive" />
+		<result property="totalCarCount" column="totalCarCount" />
+	</resultMap>
+
+	<select id="findByCondition" resultMap="resultMap" parameterType="ConditionFiled">
+	    select * from etc_statistics t
+	</select>
+</mapper>

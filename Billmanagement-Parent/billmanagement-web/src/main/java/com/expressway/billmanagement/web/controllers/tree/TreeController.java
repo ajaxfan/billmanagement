@@ -21,8 +21,6 @@ public class TreeController {
 	private @Autowired ISystemMenuTreeService systemMenuTreeService;
 
 	/**
-	 * 楼栋列表
-	 *
 	 * @param limit
 	 *            开始索引
 	 * @param start
