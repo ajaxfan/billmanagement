@@ -86,7 +86,7 @@ Ext.define('FreeCarReportModule.view.GridPanel', {
     		store: store,
     		tbar: Ext.create('Ext.toolbar.Toolbar', {
                 items: [{
-            		fieldLabel: '统计日期',
+            		fieldLabel: '开始日期',
             		labelAlign: 'right',
             		width: 210,
             		labelWidth: 80,
@@ -96,15 +96,27 @@ Ext.define('FreeCarReportModule.view.GridPanel', {
     	   	        editable: false,
     	   	        value: new Date()
             	}, {
+            		fieldLabel: '结束日期',
+            		labelAlign: 'right',
+            		width: 190,
+            		labelWidth: 80,
+    	           	id: 'endDate',
+    	   	        xtype: 'datefield',
+    	   	        format: 'Y',
+    	   	        editable: false,
+    	   	        value: new Date()
+            	},{
                     text: '查询',
                     iconCls: 'search',
                     action: 'search',
 	 	   		    listeners: {
 		   			   click: function() {
 		   				    var proxy = store.getProxy();
-			   		        var beginDate = Ext.util.Format.date(Ext.getCmp("beginDate").getValue(), 'Y');
+			   		        var beginDate = Ext.util.Format.date(Ext.getCmp("beginDate").getValue(), 'Y/m/d');
+			   		        var endDate = Ext.util.Format.date(Ext.getCmp("endDate").getValue(), 'Y/m/d');
 			   		        proxy.extraParams = store.baseParams || {};
 			   		        proxy.extraParams["beginDate"] = beginDate;// 要统计的日期
+			   		        proxy.extraParams["endDate"] = endDate;// 要统计的日期
 			   		        
 			   		        store.reload();
 		   			   }

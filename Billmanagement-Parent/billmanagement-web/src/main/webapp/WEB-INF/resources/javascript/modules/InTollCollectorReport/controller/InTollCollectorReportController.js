@@ -18,8 +18,12 @@ Ext.define('InTollCollectorReportModule.controller.InTollCollectorReportControll
         store.on("load", function(){
         	gridPanel.getSelectionModel().select(0);
         });
-        store.load({
-        	beginDate: Ext.util.Format.date(new Date(), 'Y/m/d')
-        });
+        
+        // 初始化加载数据
+        var proxy = store.getProxy();
+        proxy.extraParams = store.baseParams || {};
+        proxy.extraParams["beginDate"] = Ext.util.Format.date(new Date(), 'Y/m/d');
+        
+        store.reload();
 	}
 });
