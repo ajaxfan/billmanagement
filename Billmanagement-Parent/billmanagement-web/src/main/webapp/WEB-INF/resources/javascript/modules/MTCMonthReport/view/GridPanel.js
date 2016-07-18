@@ -3,7 +3,7 @@ Ext.define('MTCMonthReportModule.view.GridPanel', {
 	alias: 'widget.gridpanel',
 	requires: ["Ext.ux.MonthField"],
 	
-    defaults:{ sortable: true },
+    defaults:{ sortable: false },
     columns: [{ 
     	xtype: 'rownumberer',
     	align: 'center',
@@ -44,7 +44,6 @@ Ext.define('MTCMonthReportModule.view.GridPanel', {
     }, {
         header: '欠费',
         width: 60,
-        align: 'right',
         dataIndex: 'arrears'
     }, {
         header: '1型',
@@ -91,7 +90,7 @@ Ext.define('MTCMonthReportModule.view.GridPanel', {
                 items: [{
             		fieldLabel: '统计日期',
             		labelAlign: 'right',
-            		width: 180,
+            		width: 170,
             		labelWidth: 80,
     	           	id: 'beginDate',
     	   	        xtype: 'monthfield',

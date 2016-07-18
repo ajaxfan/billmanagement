@@ -4,12 +4,24 @@
 <!-- 票据使用明细 -->
 <mapper namespace="com.expressway.billmanagement.data.mappers.BillUseDetailMapper">
 	<resultMap id="resultMap" type="BillUseDetail">
-		<id property="employeeNo" column="employeeNo" />
-		<result property="employeeName" column="employeeName" />
-		<result property="enteName" column="enteName" />
-		<result property="orderNo" column="orderNo" />
-		<result property="orderDate" column="orderDate" />
-		<result property="totalFare" column="totalFare" />
+		<result property="dateRange" column="dateRange" />
+		<result property="employeeNo" column="employeeNo" />
+		<result property="remark" column="remark" />
+		<result property="useBegin" column="useBegin" />
+		<result property="useEnd" column="useEnd" />
+		<result property="useCount" column="useCount" />
+		<result property="sellBegin" column="sellBegin" />
+		<result property="sellEnd" column="sellEnd" />
+		<result property="sellCount" column="sellCount" />
+		<result property="invalidBegin" column="invalidBegin" />
+		<result property="invalidEnd" column="invalidEnd" />
+		<result property="invalidCount" column="invalidCount" />
+		<result property="subtotalBegin" column="subtotalBegin" />
+		<result property="subtotalEnd" column="subtotalEnd" />
+		<result property="subtotalCount" column="subtotalCount" />
+		<result property="balanceBegin" column="balanceBegin" />
+		<result property="balanceEnd" column="balanceEnd" />
+		<result property="balanceCount" column="balanceCount" />
 	</resultMap>
 
 	<select id="findByCondition" resultMap="resultMap" parameterType="ConditionFiled">

@@ -3,7 +3,7 @@ Ext.define('ETCYearReportModule.view.GridPanel', {
 	alias: 'widget.gridpanel',
 	requires: ["Ext.ux.MonthField"],
 	
-    defaults:{ sortable: true },
+    defaults:{ sortable: false },
     columns: [{ 
     	xtype: 'rownumberer',
     	align: 'center',

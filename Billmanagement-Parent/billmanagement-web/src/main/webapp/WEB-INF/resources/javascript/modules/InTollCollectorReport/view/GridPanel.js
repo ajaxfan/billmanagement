@@ -92,7 +92,7 @@ Ext.define('InTollCollectorReportModule.view.GridPanel', {
                 items: [{
             		fieldLabel: '统计日期',
             		labelAlign: 'right',
-            		width: 210,
+            		width: 190,
             		labelWidth: 80,
     	           	id: 'beginDate',
     	   	        xtype: 'datefield',

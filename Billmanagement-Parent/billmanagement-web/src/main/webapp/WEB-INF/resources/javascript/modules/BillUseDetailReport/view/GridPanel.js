@@ -5,29 +5,30 @@ Ext.define('BillUseDetailModule.view.GridPanel', {
     defaults:{ sortable: false},
     columns: [{ 
         header: '时间段',
-    	width: 160
+    	width: 180,
+        dataIndex: 'dateRange'
 	}, {
         header: '编号',
         width: 80,
         dataIndex: 'employeeNo'
     }, {
         header: '摘要',
-        width: 80,
-        dataIndex: 'employeeName'
+        width: 120,
+        dataIndex: 'remark'
     }, {
         header: '领用数',
         columns: [{
             header: '起始号',
             width: 140,
-            dataIndex: 'orderNo'
+            dataIndex: 'useBegin'
         },{
             header: '终止哈',
             width: 140,
-            dataIndex: 'orderNo'
+            dataIndex: 'useEnd'
         },{
             header: '总数',
             width: 140,
-            dataIndex: 'orderNo'
+            dataIndex: 'useCount'
         }]
     }, {
         header: '核销数',
@@ -36,45 +37,45 @@ Ext.define('BillUseDetailModule.view.GridPanel', {
             columns: [{
                 header: '起始号',
                 width: 140,
-                dataIndex: 'orderNo'
+                dataIndex: 'sellBegin'
             },{
                 header: '终止哈',
                 width: 140,
-                dataIndex: 'orderNo'
+                dataIndex: 'sellEnd'
             },{
                 header: '总数',
                 width: 140,
-                dataIndex: 'orderNo'
+                dataIndex: 'sellCount'
             }]
         },{
             header: '作废',
             columns: [{
                 header: '起始号',
                 width: 140,
-                dataIndex: 'orderNo'
+                dataIndex: 'invalidBegin'
             },{
                 header: '终止哈',
                 width: 140,
-                dataIndex: 'orderNo'
+                dataIndex: 'invalidEnd'
             },{
                 header: '总数',
                 width: 140,
-                dataIndex: 'orderNo'
+                dataIndex: 'invalidCount'
             }]
         },{
             header: '小计',
             columns: [{
                 header: '起始号',
                 width: 140,
-                dataIndex: 'orderNo'
+                dataIndex: 'subtotalBegin'
             },{
                 header: '终止哈',
                 width: 140,
-                dataIndex: 'orderNo'
+                dataIndex: 'subtotalEnd'
             },{
                 header: '总数',
                 width: 140,
-                dataIndex: 'orderNo'
+                dataIndex: 'subtotalCount'
             }]
         }]
     }, {
@@ -82,15 +83,15 @@ Ext.define('BillUseDetailModule.view.GridPanel', {
         columns: [{
             header: '起始号',
             width: 140,
-            dataIndex: 'orderNo'
+            dataIndex: 'balanceBegin'
         },{
             header: '终止哈',
             width: 140,
-            dataIndex: 'orderNo'
+            dataIndex: 'balanceEnd'
         },{
             header: '总数',
             width: 140,
-            dataIndex: 'orderNo'
+            dataIndex: 'balanceCount'
         }]
     }],
     

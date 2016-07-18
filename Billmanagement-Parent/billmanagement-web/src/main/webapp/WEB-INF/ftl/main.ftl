@@ -10,10 +10,10 @@
         <meta http-equiv="Pragma" content="no-cache">
         <meta http-equiv="Cache" content="no-cache">
         <meta name="author" content="fxstudio.com.cn" />
-        <meta name="description" content="吉林省高速公路收费稽查管理系统" />
-        <meta name="keywords" content="吉林省高速公路收费稽查管理系统,Management,FXStudio">
+        <meta name="description" content="吉林省高速公路票据管理系统" />
+        <meta name="keywords" content="吉林省高速公路票据管理系统,Management,FXStudio">
         <meta name="Copyright" content="Copyright fxstudio.com.cn All Rights Reserved." />
-        <title>吉林省高速公路收费稽查管理系统</title>
+        <title>吉林省高速公路票据管理系统</title>
 
         <!-- WebPage Style Desc -->
         <link rel="shortcut icon" type="images/x-icon" href="images/favicon.ico" />

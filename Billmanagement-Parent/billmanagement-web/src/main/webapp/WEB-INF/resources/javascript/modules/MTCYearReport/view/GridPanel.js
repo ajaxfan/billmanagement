@@ -3,7 +3,7 @@ Ext.define('MTCYearReportModule.view.GridPanel', {
 	alias: 'widget.gridpanel',
 	requires: ["Ext.ux.MonthField"],
 	
-    defaults:{ sortable: true },
+    defaults:{ sortable: false },
     columns: [{ 
     	xtype: 'rownumberer',
     	align: 'center',
@@ -44,7 +44,6 @@ Ext.define('MTCYearReportModule.view.GridPanel', {
     }, {
         header: '欠费',
         width: 60,
-        align: 'right',
         dataIndex: 'arrears'
     }, {
         header: '1型',

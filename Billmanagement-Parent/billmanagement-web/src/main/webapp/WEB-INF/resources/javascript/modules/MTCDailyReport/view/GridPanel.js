@@ -2,7 +2,7 @@ Ext.define('MTCDailyReportModule.view.GridPanel', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.gridpanel',
 	
-    defaults:{ sortable: true },
+    defaults:{ sortable: false },
     columns: [{ 
     	xtype: 'rownumberer',
     	align: 'center',
@@ -43,7 +43,6 @@ Ext.define('MTCDailyReportModule.view.GridPanel', {
     }, {
         header: '欠费',
         width: 60,
-        align: 'right',
         dataIndex: 'arrears'
     }, {
         header: '1型',
@@ -90,7 +89,7 @@ Ext.define('MTCDailyReportModule.view.GridPanel', {
                 items: [{
             		fieldLabel: '统计日期',
             		labelAlign: 'right',
-            		width: 210,
+            		width: 190,
             		labelWidth: 80,
     	           	id: 'beginDate',
     	   	        xtype: 'datefield',

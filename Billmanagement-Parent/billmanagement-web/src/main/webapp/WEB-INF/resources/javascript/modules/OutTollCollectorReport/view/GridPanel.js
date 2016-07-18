@@ -2,7 +2,7 @@ Ext.define('OutTollCollectorReportModule.view.GridPanel', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.gridpanel',
 	
-    defaults:{ sortable: true },
+    defaults:{ sortable: false },
     columns: [{ 
     	xtype: 'rownumberer',
         header: '序号',
@@ -92,7 +92,7 @@ Ext.define('OutTollCollectorReportModule.view.GridPanel', {
                 items: [{
             		fieldLabel: '统计日期',
             		labelAlign: 'right',
-            		width: 210,
+            		width: 190,
             		labelWidth: 80,
     	           	id: 'beginDate',
     	   	        xtype: 'datefield',

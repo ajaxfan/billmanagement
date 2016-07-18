@@ -2,7 +2,7 @@ Ext.define('FreeCarReportModule.view.GridPanel', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.gridpanel',
 	
-    defaults:{ sortable: true },
+    defaults:{ sortable: false },
     columns: [{ 
     	xtype: 'rownumberer',
     	align: 'center',
@@ -88,11 +88,11 @@ Ext.define('FreeCarReportModule.view.GridPanel', {
                 items: [{
             		fieldLabel: '开始日期',
             		labelAlign: 'right',
-            		width: 210,
+            		width: 190,
             		labelWidth: 80,
     	           	id: 'beginDate',
     	   	        xtype: 'datefield',
-    	   	        format: 'Y',
+    	   	        format: 'Y/m/d',
     	   	        editable: false,
     	   	        value: new Date()
             	}, {
@@ -102,7 +102,7 @@ Ext.define('FreeCarReportModule.view.GridPanel', {
             		labelWidth: 80,
     	           	id: 'endDate',
     	   	        xtype: 'datefield',
-    	   	        format: 'Y',
+    	   	        format: 'Y/m/d',
     	   	        editable: false,
     	   	        value: new Date()
             	},{

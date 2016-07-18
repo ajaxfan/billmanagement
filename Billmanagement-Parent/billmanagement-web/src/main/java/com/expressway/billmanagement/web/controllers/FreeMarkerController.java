@@ -33,7 +33,7 @@ public class FreeMarkerController {
 		SystemUser user = (SystemUser) request.getSession().getAttribute("freeWayUser");
 		model.addAttribute("modelName", user == null ? "exitSystem" : path);
 
-		return "func";
+		return path.endsWith("Report") ? "report" : "func";
 	}
 
 	/**

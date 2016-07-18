@@ -37,12 +37,29 @@ public class BillUseDetailDemo {
 
         for (int i = 1; i <= 40; i++) {
             BillUseDetail bean = new BillUseDetail();
-            bean.setEmployeeName("测试人员");
-            bean.setEmployeeNo("056498785");
-            bean.setEnteName("长春南部高速路口");
-            bean.setOrderDate("2016-07-10 17:20:32");
-            bean.setOrderNo("LOIER897974654");
-            bean.setTotalFare(String.valueOf(i * 236));
+            bean.setDateRange("2015/10/12 - 2015/11/02");
+            bean.setEmployeeNo("32w47938");
+            bean.setRemark("sdfsfd");
+            
+            bean.setUseBegin("107118193");
+            bean.setUseEnd("107118193");
+            bean.setUseCount("796");
+            
+            bean.setSellBegin("107118193");
+            bean.setSellEnd("107118193");
+            bean.setSellCount("234");
+            
+            bean.setInvalidBegin("107118193");
+            bean.setInvalidEnd("107118193");
+            bean.setInvalidCount("546");
+            
+            bean.setSubtotalBegin("107118193");
+            bean.setSubtotalEnd("107118193");
+            bean.setSubtotalCount("789");
+            
+            bean.setBalanceBegin("107118193");
+            bean.setBalanceEnd("107118193");
+            bean.setBalanceCount("452");
             
             list.add(bean);
         }
