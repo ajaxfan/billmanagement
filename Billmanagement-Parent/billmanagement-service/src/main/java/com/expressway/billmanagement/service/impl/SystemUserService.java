@@ -39,15 +39,24 @@ final class SystemUserService implements ISystemUserService {
      */
     @Override
     public FeedBackMessage addOrUpdate(SystemUser user) {
-        // 删除现有的用户信息
-        del(user.getSysid());
+    	if (StringHelper.isNullOrEmpty(user.getSysid())) {
+			user.setSysid(UUIDGenerator.random());
+			user.setPassword(MD5Converter.string2MD5(user.getPassword()));
+			systemUserMapper.insertSelective(user);
+		} else {
+			// 判断用户是否修改了密码
+			Condition condition = new Condition(SystemUser.class);
+			Criteria criteria = condition.createCriteria();
+			criteria.andEqualTo("sysid", user.getSysid());
+			criteria.andEqualTo("password", user.getPassword());
 
-        // 新增用户信息
-        user.setSysid(UUIDGenerator.random());
-        user.setPassword(MD5Converter.string2MD5(user.getPassword()));
-        systemUserMapper.insert(user);
-
-        return new FeedBackMessage(true);
+			// 只有在密码被修改的情况下，才能执行密码加密操作
+			if (systemUserMapper.selectByExample(condition).size() == 0) {
+				user.setPassword(MD5Converter.string2MD5(user.getPassword()));
+			}
+			systemUserMapper.updateByPrimaryKey(user);
+		}
+		return new FeedBackMessage(true);
     }
 
     /**
